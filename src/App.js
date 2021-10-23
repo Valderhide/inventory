@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Container, Row, Col, Button, Alert, Breadcrumb, BreadcrumbItem, Card, Form } from 'react-bootstrap';
+import { Container, Row, Col, Button, Alert, Breadcrumb, BreadcrumbItem, Card, Form, Dropdown, DropdownButton, ButtonGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
 
@@ -9,14 +9,35 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Breadcrumb>
+      <Container>
+        <>
+          {['Primary', 'Primary', 'Primary', 'Primary', 'Primary', 'Primary'].map(
+            (variant) => (
+              <DropdownButton
+                as={ButtonGroup}
+                key={variant}
+                id={`dropdown-variants-${variant}`}
+                variant={variant.toLowerCase()}
+                title="Category"
+              >
+                <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+                <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+                <Dropdown.Item eventKey="3" active>
+                  Active Item
+                </Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+              </DropdownButton>
+            ),
+          )}
+        </>
+        {/*<Breadcrumb>
           <BreadcrumbItem active>Fabrics</BreadcrumbItem>
           <BreadcrumbItem>Tools</BreadcrumbItem>
           <BreadcrumbItem active>Threads</BreadcrumbItem>
           <BreadcrumbItem>Consumables</BreadcrumbItem>
           <BreadcrumbItem active>Misc</BreadcrumbItem>
-        </Breadcrumb>
-        <Container>
+        </Breadcrumb>*/}
           <Form>
             <Row>
               <Col md>
