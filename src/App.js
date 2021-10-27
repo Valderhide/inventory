@@ -33,24 +33,31 @@ function App() {
             )}
           </>
           <Form>
-            <Row>
-              <Col md>
-                <Form.Group controlId="formEmail">
-                  <Form.Label>Email Adress</Form.Label>
-                  <Form.Control type="email" placeholder="Example@email.com" />
-                  <Form.Text className="text-muted">
-                    Lorem ipsum dolor sit amet, consectetur.
-                  </Form.Text>
-                </Form.Group>
-              </Col>
-              <Col md>
-                <Form.Group controlId="formPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control type="password" placeholder="PASSWORD" />
-                </Form.Group>
-              </Col>
-            </Row>
-            <Button variant="secondary" type="submit">Login</Button>
+          <Form.Group controlId="formName">
+              <Form.Label>Name</Form.Label>
+              <Form.Control placeholder="Name of Material" />
+            </Form.Group>
+            <Form.Group controlId="formColor">
+              <Form.Label>Color</Form.Label>
+              <Form.Control placeholder="Color" />
+            </Form.Group>
+            <Form.Group controlId="formLength">
+              <Form.Label>Length</Form.Label>
+              <Form.Control placeholder="Length" />
+            </Form.Group>
+            <Form.Group controlId="formPrice">
+              <Form.Label>Price</Form.Label>
+              <Form.Control placeholder="Price" />
+            </Form.Group>
+            <Form.Group controlId="formLocation">
+              <Form.Label>Store Location</Form.Label>
+              <Form.Control placeholder="Store Location" />
+            </Form.Group>
+            
+            
+            
+            
+            <Button variant="secondary" type="submit">Submit</Button>
           </Form>
         </Container>
         <p>
