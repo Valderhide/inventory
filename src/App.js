@@ -1,10 +1,10 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
-import { Container, Row, Col, Button, Alert, Card, Form, Dropdown, DropdownButton, ButtonGroup } from 'react-bootstrap';
+import { Container, Row, Col, Button, Alert, Card, Form, Dropdown, DropdownButton, ButtonGroup, Accordion } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
 const categories = ['Fabric', 'Patterns', 'Buttons', 'Threads'];
-const subCategories = ['Colors', 'Themes', 'Material Type',]
+//const subCategories = ['Colors', 'Themes', 'Material Type',]
 
 
 function App() {
@@ -12,26 +12,170 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Container>
-          <>
-            {categories.map(
-              (name) => (
-                <DropdownButton
-                  as={ButtonGroup}
-                  key={name}
-                  variant="primary"
-                  title={name}
-                >
-                  <Dropdown.Item eventKey="1">Action</Dropdown.Item>
-                  <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
-                  <Dropdown.Item eventKey="3" active>
-                    Active Item
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
-                </DropdownButton>
-              ),
-            )}
-          </>
+          <Row>
+            <Col>
+              <Accordion>
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>Main Category1</Accordion.Header>
+                  <Accordion.Body>
+                    {categories.map(
+                      (name) => (
+                        <DropdownButton
+                          as={ButtonGroup}
+                          key={name}
+                          variant="primary"
+                          title={name}
+                        >
+                          <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+                          <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+                          <Dropdown.Item eventKey="3" active>
+                            Active Item
+                          </Dropdown.Item>
+                          <Dropdown.Divider />
+                          <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+                        </DropdownButton>
+                      ),
+                    )}
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+            </Col>
+            <Col>
+              <Accordion>
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>Main Category2</Accordion.Header>
+                  <Accordion.Body>
+                    {categories.map(
+                      (name) => (
+                        <DropdownButton
+                          as={ButtonGroup}
+                          key={name}
+                          variant="primary"
+                          title={name}
+                        >
+                          <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+                          <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+                          <Dropdown.Item eventKey="3" active>
+                            Active Item
+                          </Dropdown.Item>
+                          <Dropdown.Divider />
+                          <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+                        </DropdownButton>
+                      ),
+                    )}
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+            </Col>
+            <Col>
+              <Accordion>
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>Main Category3</Accordion.Header>
+                  <Accordion.Body>
+                    {categories.map(
+                      (name) => (
+                        <DropdownButton
+                          as={ButtonGroup}
+                          key={name}
+                          variant="primary"
+                          title={name}
+                        >
+                          <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+                          <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+                          <Dropdown.Item eventKey="3" active>
+                            Active Item
+                          </Dropdown.Item>
+                          <Dropdown.Divider />
+                          <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+                        </DropdownButton>
+                      ),
+                    )}
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+            </Col>
+            <Col>
+              <Accordion>
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>Main Category4</Accordion.Header>
+                  <Accordion.Body>
+                    {categories.map(
+                      (name) => (
+                        <DropdownButton
+                          as={ButtonGroup}
+                          key={name}
+                          variant="primary"
+                          title={name}
+                        >
+                          <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+                          <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+                          <Dropdown.Item eventKey="3" active>
+                            Active Item
+                          </Dropdown.Item>
+                          <Dropdown.Divider />
+                          <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+                        </DropdownButton>
+                      ),
+                    )}
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+            </Col>
+            <Col>
+              <Accordion>
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>Main Category5</Accordion.Header>
+                  <Accordion.Body>
+                    {categories.map(
+                      (name) => (
+                        <DropdownButton
+                          as={ButtonGroup}
+                          key={name}
+                          variant="primary"
+                          title={name}
+                        >
+                          <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+                          <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+                          <Dropdown.Item eventKey="3" active>
+                            Active Item
+                          </Dropdown.Item>
+                          <Dropdown.Divider />
+                          <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+                        </DropdownButton>
+                      ),
+                    )}
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+            </Col>
+            <Col>
+              <Accordion>
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>Main Category6</Accordion.Header>
+                  <Accordion.Body>
+                    {categories.map(
+                      (name) => (
+                        <DropdownButton
+                          as={ButtonGroup}
+                          key={name}
+                          variant="primary"
+                          title={name}
+                        >
+                          <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+                          <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+                          <Dropdown.Item eventKey="3" active>
+                            Active Item
+                          </Dropdown.Item>
+                          <Dropdown.Divider />
+                          <Dropdown.Item eventKey="4">Separated link</Dropdown.Item>
+                        </DropdownButton>
+                      ),
+                    )}
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+            </Col>
+          </Row>
           <Form>
             <Form.Group controlId="formFile" className="mb-3">
               <Form.Label>Default file input example</Form.Label>
