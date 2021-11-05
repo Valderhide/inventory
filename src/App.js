@@ -1,11 +1,14 @@
 //import logo from './logo.svg';
 import './App.css';
-import { Container, Row, Col, Button, Alert, Card, Form, Dropdown, DropdownButton, ButtonGroup, Accordion } from 'react-bootstrap';
+import { Container, Row, Col, Button, Form, Dropdown, DropdownButton, ButtonGroup, Accordion } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import categories from './categories.json';
+//const categories = ['Fabric', 'Patterns', 'Buttons', 'Threads'];
 <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
-const categories = ['Fabric', 'Patterns', 'Buttons', 'Threads'];
 //const subCategories = ['Colors', 'Themes', 'Material Type',]
 
+
+//Find way to generate accordions
 
 function App() {
   return (
@@ -178,7 +181,7 @@ function App() {
           </Row>
           <Form>
             <Form.Group controlId="formFile" className="mb-3">
-              <Form.Label>Default file input example</Form.Label>
+              <Form.Label>Item Picture</Form.Label>
               <Form.Control type="file" />
             </Form.Group>
             <Row>
@@ -211,7 +214,7 @@ function App() {
             </Row>
             <Form.Group controlId="formDescription">
               <Form.Label>Item Description</Form.Label>
-              <Form.Control placeholder="Item Description" />
+              <Form.Control placeholder="Item Description" style={{ height: '100px' }} />
             </Form.Group>
             <Form.Group controlId="formLocation">
               <Form.Label>Store Location</Form.Label>
