@@ -1,18 +1,18 @@
 [
-    {
-      "title": "Fabric",
-      "Categories": ["Red", "Blue", "Green"]
-    },
-    {
-      "title": "Patterns",
-      "Categories": ["Chevron", "Paisley"]
-    },
-    {
-      "title": "Buttons",
-      "Categories": ["Button type 1", "Button type 2"]
-    },
-    {
-      "title": "Threads",
-      "Categories": ["Thread 1"]
-    }
-  ]
+  {
+    "title": "Fabric",
+    "subCategories": ["Red", "Blue", "Green"]
+  },
+  {
+    "title": "Patterns",
+    "subCategories": ["Chevron", "Paisley"]
+  },
+  {
+    "title": "Buttons",
+    "subCategories": ["Button type 1", "Button type 2"]
+  },
+  {
+    "title": "Threads",
+    "subCategories": ["Thread 1"]
+  }
+]

@@ -1,4 +1,3 @@
-//import logo from './logo.svg';
 import './App.css';
 import { Container, Row, Col, Button, Form, Dropdown, DropdownButton, ButtonGroup, Accordion } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,7 +7,7 @@ import categories from './categories.json';
 //const subCategories = ['Colors', 'Themes', 'Material Type',]
 
 
-//Find way to generate accordions
+//Find way to generate Accordions
 
 function App() {
   return (
@@ -19,7 +18,7 @@ function App() {
             <Col>
               <Accordion>
                 <Accordion.Item eventKey="0">
-                  <Accordion.Header>Main Category1</Accordion.Header>
+                  <Accordion.Header>Fabric's</Accordion.Header>
                   <Accordion.Body>
                     {categories.map(
                       (name) => (
@@ -29,7 +28,7 @@ function App() {
                           variant="primary"
                           title={name}
                         >
-                          <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+                          <Dropdown.Item eventKey="1"></Dropdown.Item>
                           <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
                           <Dropdown.Item eventKey="3" active>
                             Active Item
@@ -223,17 +222,6 @@ function App() {
             <Button variant="secondary" type="submit">Submit</Button>
           </Form>
         </Container>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
