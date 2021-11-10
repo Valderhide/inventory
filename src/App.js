@@ -9,7 +9,20 @@ import categories from './categories.json';
 
 //Find way to generate Accordions
 
+
 function App() {
+  const handleSubmit = (e) => {
+    const picture = e.target[0].value;
+    const name = e.target[1].value;
+    const color = e.target[2].value;
+    const amount = e.target[3].value;
+    const price = e.target[4].value;
+    const description = e.target[5].value;
+    const store = e.target[6].value;
+    console.log({ picture, name, color, amount, price, description, store});
+    // Put console log for final result here...
+    e.preventDefault();
+}
   return (
     <div className="App">
       <header className="App-header">
@@ -21,12 +34,12 @@ function App() {
                   <Accordion.Header>Fabric's</Accordion.Header>
                   <Accordion.Body>
                     {categories.map(
-                      (name) => (
+                      ({title}) => (
                         <DropdownButton
                           as={ButtonGroup}
-                          key={name}
+                          key={title}
                           variant="primary"
-                          title={name}
+                          title={title}
                         >
                           <Dropdown.Item eventKey="1"></Dropdown.Item>
                           <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
@@ -48,12 +61,12 @@ function App() {
                   <Accordion.Header>Main Category2</Accordion.Header>
                   <Accordion.Body>
                     {categories.map(
-                      (name) => (
+                      ({title}) => (
                         <DropdownButton
                           as={ButtonGroup}
-                          key={name}
+                          key={title}
                           variant="primary"
-                          title={name}
+                          title={title}
                         >
                           <Dropdown.Item eventKey="1">Action</Dropdown.Item>
                           <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
@@ -75,12 +88,12 @@ function App() {
                   <Accordion.Header>Main Category3</Accordion.Header>
                   <Accordion.Body>
                     {categories.map(
-                      (name) => (
+                      ({title}) => (
                         <DropdownButton
                           as={ButtonGroup}
-                          key={name}
+                          key={title}
                           variant="primary"
-                          title={name}
+                          title={title}
                         >
                           <Dropdown.Item eventKey="1">Action</Dropdown.Item>
                           <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
@@ -102,12 +115,12 @@ function App() {
                   <Accordion.Header>Main Category4</Accordion.Header>
                   <Accordion.Body>
                     {categories.map(
-                      (name) => (
+                      ({title}) => (
                         <DropdownButton
                           as={ButtonGroup}
-                          key={name}
+                          key={title}
                           variant="primary"
-                          title={name}
+                          title={title}
                         >
                           <Dropdown.Item eventKey="1">Action</Dropdown.Item>
                           <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
@@ -129,12 +142,12 @@ function App() {
                   <Accordion.Header>Main Category5</Accordion.Header>
                   <Accordion.Body>
                     {categories.map(
-                      (name) => (
+                      ({title}) => (
                         <DropdownButton
                           as={ButtonGroup}
-                          key={name}
+                          key={title}
                           variant="primary"
-                          title={name}
+                          title={title}
                         >
                           <Dropdown.Item eventKey="1">Action</Dropdown.Item>
                           <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
@@ -156,12 +169,12 @@ function App() {
                   <Accordion.Header>Main Category6</Accordion.Header>
                   <Accordion.Body>
                     {categories.map(
-                      (name) => (
+                      ({title}) => (
                         <DropdownButton
                           as={ButtonGroup}
-                          key={name}
+                          key={title}
                           variant="primary"
-                          title={name}
+                          title={title}
                         >
                           <Dropdown.Item eventKey="1">Action</Dropdown.Item>
                           <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
@@ -178,7 +191,7 @@ function App() {
               </Accordion>
             </Col>
           </Row>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formFile" className="mb-3">
               <Form.Label>Item Picture</Form.Label>
               <Form.Control type="file" />
