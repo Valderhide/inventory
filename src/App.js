@@ -2,9 +2,8 @@ import './App.css';
 import { Container, Row, Col, Button, Form, Dropdown, DropdownButton, ButtonGroup, Accordion } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import categories from './categories.json';
-//const categories = ['Fabric', 'Patterns', 'Buttons', 'Threads'];
+//import FormInput from './ItemForm.js';
 <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
-//const subCategories = ['Colors', 'Themes', 'Material Type',]
 
 
 //Find way to generate Accordions
@@ -19,10 +18,35 @@ function App() {
     const price = e.target[4].value;
     const description = e.target[5].value;
     const store = e.target[6].value;
-    console.log({ picture, name, color, amount, price, description, store});
+    console.log({ picture, name, color, amount, price, description, store });
     // Put console log for final result here...
     e.preventDefault();
-}
+  }
+
+  function Category({ title, subCategories }) {
+    return (
+      <Col>
+        <Accordion>
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>{title}</Accordion.Header>
+            <Accordion.Body>
+              <DropdownButton
+                as={ButtonGroup}
+                key={title}
+                variant="primary"
+                title={title}
+              >
+                {subCategories.map(subCategory => (
+                  <Dropdown.Item key={subCategory}>{subCategory}</Dropdown.Item>
+                ))}
+              </DropdownButton>
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+      </Col>
+    );
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -31,17 +55,17 @@ function App() {
             <Col>
               <Accordion>
                 <Accordion.Item eventKey="0">
-                  <Accordion.Header>Fabric's</Accordion.Header>
+                  <Accordion.Header>Main Category1</Accordion.Header>
                   <Accordion.Body>
                     {categories.map(
-                      ({title}) => (
+                      ({ title }) => (
                         <DropdownButton
                           as={ButtonGroup}
                           key={title}
                           variant="primary"
                           title={title}
                         >
-                          <Dropdown.Item eventKey="1"></Dropdown.Item>
+                          <Dropdown.Item eventKey="1">Action</Dropdown.Item>
                           <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
                           <Dropdown.Item eventKey="3" active>
                             Active Item
@@ -55,13 +79,15 @@ function App() {
                 </Accordion.Item>
               </Accordion>
             </Col>
+
+
             <Col>
               <Accordion>
                 <Accordion.Item eventKey="0">
                   <Accordion.Header>Main Category2</Accordion.Header>
                   <Accordion.Body>
                     {categories.map(
-                      ({title}) => (
+                      ({ title }) => (
                         <DropdownButton
                           as={ButtonGroup}
                           key={title}
@@ -88,7 +114,7 @@ function App() {
                   <Accordion.Header>Main Category3</Accordion.Header>
                   <Accordion.Body>
                     {categories.map(
-                      ({title}) => (
+                      ({ title }) => (
                         <DropdownButton
                           as={ButtonGroup}
                           key={title}
@@ -115,7 +141,7 @@ function App() {
                   <Accordion.Header>Main Category4</Accordion.Header>
                   <Accordion.Body>
                     {categories.map(
-                      ({title}) => (
+                      ({ title }) => (
                         <DropdownButton
                           as={ButtonGroup}
                           key={title}
@@ -142,7 +168,7 @@ function App() {
                   <Accordion.Header>Main Category5</Accordion.Header>
                   <Accordion.Body>
                     {categories.map(
-                      ({title}) => (
+                      ({ title }) => (
                         <DropdownButton
                           as={ButtonGroup}
                           key={title}
@@ -169,7 +195,7 @@ function App() {
                   <Accordion.Header>Main Category6</Accordion.Header>
                   <Accordion.Body>
                     {categories.map(
-                      ({title}) => (
+                      ({ title }) => (
                         <DropdownButton
                           as={ButtonGroup}
                           key={title}

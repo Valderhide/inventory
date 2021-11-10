@@ -1,18 +1,30 @@
 [
   {
     "title": "Fabric",
-    "subCategories": ["Red", "Blue", "Green"]
+    "subCategories": [
+      "Red",
+      "Blue",
+      "Green"
+    ]
   },
   {
     "title": "Patterns",
-    "subCategories": ["Chevron", "Paisley"]
+    "subCategories": [
+      "Chevron",
+      "Paisley"
+    ]
   },
   {
     "title": "Buttons",
-    "subCategories": ["Button type 1", "Button type 2"]
+    "subCategories": [
+      "Button type 1",
+      "Button type 2"
+    ]
   },
   {
     "title": "Threads",
-    "subCategories": ["Thread 1"]
+    "subCategories": [
+      "Thread 1"
+    ]
   }
 ]
