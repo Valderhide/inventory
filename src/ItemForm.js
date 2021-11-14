@@ -1,22 +1,6 @@
-/*
-import { Container, Row, Col, Button, Form, Dropdown, DropdownButton, ButtonGroup, Accordion } from 'react-bootstrap';
+import { Row, Col, Button, Form} from 'react-bootstrap';
 
-function App() {
-  const handleSubmit = (e) => {
-    const picture = e.target[0].value;
-    const name = e.target[1].value;
-    const color = e.target[2].value;
-    const amount = e.target[3].value;
-    const price = e.target[4].value;
-    const description = e.target[5].value;
-    const store = e.target[6].value;
-    console.log({ picture, name, color, amount, price, description, store });
-    // Put console log for final result here...
-    e.preventDefault();
-  }
-
-
-<Form onSubmit={handleSubmit}>
+<Form>
 <Form.Group controlId="formFile" className="mb-3">
   <Form.Label>Item Picture</Form.Label>
   <Form.Control type="file" />
@@ -59,6 +43,4 @@ function App() {
 </Form.Group>
 <Button variant="secondary" type="submit">Submit</Button>
 </Form>
-
-export default
-*/
+export default Form
