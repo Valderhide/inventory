@@ -1,8 +1,7 @@
 import './App.css';
 import { Container, Row, Col, Button, Form, Dropdown, DropdownButton, ButtonGroup, Accordion } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './categories.json';
-import FormInput from './ItemForm.js';
+import AddItemForm from './ItemForm.js';
 <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
 
 
@@ -26,8 +25,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      
-
+        <AddItemForm handleSubmit={handleSubmit} />
       </header>
     </div>
   );
