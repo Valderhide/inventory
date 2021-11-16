@@ -1,18 +1,70 @@
 [
   {
-    "title": "Fabric",
-    "subCategories": ["Red", "Blue", "Green"]
+    "title": "Patterns", 
+    "items": [
+      {
+        "title": "Dropdown 1", 
+        "subCategories": ["Chevron", "Paisley"]
+      },
+      {
+        "title": "Dropdown 2", 
+        "subCategories": ["Chevron", "Paisley"]
+      },
+      {
+        "title": "Dropdown 2",
+        "subCategories": ["Chevron", "Paisley"]
+      }
+    ]
   },
   {
-    "title": "Patterns",
-    "subCategories": ["Chevron", "Paisley"]
+    "title": "Patterns", 
+    "items": [
+      {
+        "title": "Dropdown 1", 
+        "subCategories": ["Chevron", "Paisley"]
+      },
+      {
+        "title": "Dropdown 2", 
+        "subCategories": ["Chevron", "Paisley"]
+      },
+      {
+        "title": "Dropdown 2",
+        "subCategories": ["Chevron", "Paisley"]
+      }
+    ]
   },
   {
-    "title": "Buttons",
-    "subCategories": ["Button type 1", "Button type 2"]
+    "title": "Patterns", 
+    "items": [
+      {
+        "title": "Dropdown 1", 
+        "subCategories": ["Chevron", "Paisley"]
+      },
+      {
+        "title": "Dropdown 2", 
+        "subCategories": ["Chevron", "Paisley"]
+      },
+      {
+        "title": "Dropdown 2",
+        "subCategories": ["Chevron", "Paisley"]
+      }
+    ]
   },
   {
-    "title": "Threads",
-    "subCategories": ["Thread 1"]
+    "title": "Patterns", 
+    "items": [
+      {
+        "title": "Dropdown 1", 
+        "subCategories": ["Chevron", "Paisley"]
+      },
+      {
+        "title": "Dropdown 2", 
+        "subCategories": ["Chevron", "Paisley"]
+      },
+      {
+        "title": "Dropdown 2",
+        "subCategories": ["Chevron", "Paisley"]
+      }
+    ]
   }
 ]

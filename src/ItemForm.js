@@ -25,16 +25,16 @@ function Category({ title, subCategories, items }) {
       <Accordion>
         <Accordion.Item eventKey="0">
           <Accordion.Header>{title}</Accordion.Header>
-          {subCategories.map(subCategory => (
+          {items.map(Title => (
           <Accordion.Body>
             <DropdownButton
               as={ButtonGroup}
-              key={subCategory}
+              key={Title}
               variant="primary"
-              title={subCategory}
+              title={Title}
             >
-              {subCategories.map(subCategory => (
-                <Dropdown.Item key={subCategory}>{subCategory}</Dropdown.Item>
+              {subCategories.map(subCatergory => (
+                <Dropdown.Item key={subCatergory}>{subCatergory}</Dropdown.Item>
               ))}
             </DropdownButton>
           </Accordion.Body>
