@@ -19,24 +19,26 @@ import categories from'./categories.json';
 //   ]
 // },
 
-function Category({ title, subCategories }) {
+function Category({ title, subCategories, items }) {
   return (
     <Col>
       <Accordion>
         <Accordion.Item eventKey="0">
           <Accordion.Header>{title}</Accordion.Header>
+          {subCategories.map(subCategory => (
           <Accordion.Body>
             <DropdownButton
               as={ButtonGroup}
-              key={title}
+              key={subCategory}
               variant="primary"
-              title={title}
+              title={subCategory}
             >
               {subCategories.map(subCategory => (
                 <Dropdown.Item key={subCategory}>{subCategory}</Dropdown.Item>
               ))}
             </DropdownButton>
           </Accordion.Body>
+          ))}
         </Accordion.Item>
       </Accordion>
     </Col>
