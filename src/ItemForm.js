@@ -49,8 +49,8 @@ export default function AddItemForm({ handleSubmit }) {
   return (
     <Form onSubmit={handleSubmit}>
       {categories.map(
-        ({ title, subCategories }) => (
-          <Category key={title} title={title} subCategories={subCategories} />
+        ({ title, items }) => (
+          <Category key={title} title={title} items={items} />
         ),
       )}
       <Form.Group controlId="formFile" className="mb-3">
