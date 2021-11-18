@@ -25,9 +25,7 @@ function Category({ title, subCategories, items }) {
       <Accordion>
         <Accordion.Item eventKey="0">
           <Accordion.Header>{title}</Accordion.Header>
-          {items.map(
-            ({ items: {
-              titles, subCategories }, }) => (
+          {items.map(({ titles, subCategories }) => (
               <Accordion.Body>
                 <DropdownButton
                   as={ButtonGroup}
