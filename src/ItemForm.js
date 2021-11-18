@@ -1,5 +1,5 @@
-import { DropdownButton, ButtonGroup, Dropdown, Accordion, Row, Col, Button, Form} from 'react-bootstrap';
-import categories from'./categories.json';
+import { DropdownButton, ButtonGroup, Dropdown, Accordion, Row, Col, Button, Form } from 'react-bootstrap';
+import categories from './categories.json';
 
 // {
 //   "title": "Patterns", // Accordion
@@ -25,33 +25,35 @@ function Category({ title, subCategories, items }) {
       <Accordion>
         <Accordion.Item eventKey="0">
           <Accordion.Header>{title}</Accordion.Header>
-          {items.map(Title => (
-          <Accordion.Body>
-            <DropdownButton
-              as={ButtonGroup}
-              key={Title}
-              variant="primary"
-              title={Title}
-            >
-              {subCategories.map(subCatergory => (
-                <Dropdown.Item key={subCatergory}>{subCatergory}</Dropdown.Item>
-              ))}
-            </DropdownButton>
-          </Accordion.Body>
-          ))}
+          {items.map(
+            ({ items: {
+              titles, subCategories }, }) => (
+              <Accordion.Body>
+                <DropdownButton
+                  as={ButtonGroup}
+                  key={titles}
+                  variant="primary"
+                  title={titles}
+                >
+                  {subCategories.map(subCatergory => (
+                    <Dropdown.Item key={subCatergory}>{subCatergory}</Dropdown.Item>
+                  ))}
+                </DropdownButton>
+              </Accordion.Body>
+            ))}
         </Accordion.Item>
       </Accordion>
     </Col>
   );
 }
 
-export default function AddItemForm({handleSubmit}) {
+export default function AddItemForm({ handleSubmit }) {
   return (
     <Form onSubmit={handleSubmit}>
       {categories.map(
-          ({ title, subCategories }) => (
-              <Category key={title} title={title} subCategories={subCategories} />
-          ),
+        ({ title, subCategories }) => (
+          <Category key={title} title={title} subCategories={subCategories} />
+        ),
       )}
       <Form.Group controlId="formFile" className="mb-3">
         <Form.Label>Item Picture</Form.Label>
