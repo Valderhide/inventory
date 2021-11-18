@@ -1,5 +1,22 @@
 [
   {
+    "title": "Fabrics", 
+    "items": [
+      {
+        "titles": "Colors", 
+        "subCategories": ["Red", "Greed", "Blue"]
+      },
+      {
+        "titles": "Themes", 
+        "subCategories": ["Christmas", "Easter", "Haloween"]
+      },
+      {
+        "titles": "Type",
+        "subCategories": ["Nylon", "Polyester", "Cotton"]
+      }
+    ]
+  },
+  {
     "title": "Patterns", 
     "items": [
       {
@@ -17,53 +34,19 @@
     ]
   },
   {
-    "title": "Patterns", 
+    "title": "Buttons", 
     "items": [
       {
-        "title": "Dropdown 1", 
-        "subCategories": ["Chevron", "Paisley"]
+        "titles": "Type", 
+        "subCategories": ["Plastic", "Metal", "Acrylic"]
       },
       {
-        "title": "Dropdown 2", 
-        "subCategories": ["Chevron", "Paisley"]
+        "titles": "Size", 
+        "subCategories": ["10mm", "15mm", "20mm"]
       },
       {
-        "title": "Dropdown 2",
-        "subCategories": ["Chevron", "Paisley"]
-      }
-    ]
-  },
-  {
-    "title": "Patterns", 
-    "items": [
-      {
-        "title": "Dropdown 1", 
-        "subCategories": ["Chevron", "Paisley"]
-      },
-      {
-        "title": "Dropdown 2", 
-        "subCategories": ["Chevron", "Paisley"]
-      },
-      {
-        "title": "Dropdown 2",
-        "subCategories": ["Chevron", "Paisley"]
-      }
-    ]
-  },
-  {
-    "title": "Patterns", 
-    "items": [
-      {
-        "title": "Dropdown 1", 
-        "subCategories": ["Chevron", "Paisley"]
-      },
-      {
-        "title": "Dropdown 2", 
-        "subCategories": ["Chevron", "Paisley"]
-      },
-      {
-        "title": "Dropdown 2",
-        "subCategories": ["Chevron", "Paisley"]
+        "titles": "Color",
+        "subCategories": ["Red", "Green", "Blue"]
       }
     ]
   }
