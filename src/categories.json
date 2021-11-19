@@ -1,52 +1,85 @@
 [
   {
-    "title": "Fabrics", 
+    "title": "Fabrics",
     "items": [
       {
-        "titles": "Colors", 
-        "subCategories": ["Red", "Greed", "Blue"]
+        "titles": "Colors",
+        "subCategories": [
+          "Red",
+          "Green",
+          "Blue"
+        ]
       },
       {
-        "titles": "Themes", 
-        "subCategories": ["Christmas", "Easter", "Haloween"]
+        "titles": "Themes",
+        "subCategories": [
+          "Christmas",
+          "Easter",
+          "Haloween"
+        ]
       },
       {
         "titles": "Type",
-        "subCategories": ["Nylon", "Polyester", "Cotton"]
+        "subCategories": [
+          "Nylon",
+          "Polyester",
+          "Cotton"
+        ]
       }
     ]
   },
   {
-    "title": "Patterns", 
+    "title": "Patterns",
     "items": [
       {
-        "titles": "Dropdown 1", 
-        "subCategories": ["Chevron", "Paisley"]
-      },
-      {
-        "titles": "Dropdown 2", 
-        "subCategories": ["Chevron", "Paisley"]
+        "titles": "Dropdown 1",
+        "subCategories": [
+          "Chevron",
+          "Paisley"
+        ]
       },
       {
         "titles": "Dropdown 2",
-        "subCategories": ["Chevron", "Paisley"]
+        "subCategories": [
+          "Chevron",
+          "Paisley"
+        ]
+      },
+      {
+        "titles": "Dropdown 2",
+        "subCategories": [
+          "Chevron",
+          "Paisley"
+        ]
       }
     ]
   },
   {
-    "title": "Buttons", 
+    "title": "Buttons",
     "items": [
       {
-        "titles": "Type", 
-        "subCategories": ["Plastic", "Metal", "Acrylic"]
+        "titles": "Type",
+        "subCategories": [
+          "Plastic",
+          "Metal",
+          "Acrylic"
+        ]
       },
       {
-        "titles": "Size", 
-        "subCategories": ["10mm", "15mm", "20mm"]
+        "titles": "Size",
+        "subCategories": [
+          "10mm",
+          "15mm",
+          "20mm"
+        ]
       },
       {
         "titles": "Color",
-        "subCategories": ["Red", "Green", "Blue"]
+        "subCategories": [
+          "Red",
+          "Green",
+          "Blue"
+        ]
       }
     ]
   }

@@ -1,46 +1,32 @@
-import { DropdownButton, ButtonGroup, Dropdown, Accordion, Row, Col, Button, Form } from 'react-bootstrap';
+import { DropdownButton, ButtonGroup, Dropdown, Accordion, Row, Col, Button, Form, } from 'react-bootstrap';
+import { useState } from 'react';
 import categories from './categories.json';
 
-// {
-//   "title": "Patterns", // Accordion
-//   "items": [
-//     {
-//       "title": "Dropdown 1", // Dropdown
-//       "subCategories": ["Chevron", "Paisley"]
-//     },
-//     {
-//       "title": "Dropdown 2", // Dropdown
-//       "subCategories": ["Chevron", "Paisley"]
-//     },
-//     {
-//       "title": "Dropdown 2", // Dropdown
-//       "subCategories": ["Chevron", "Paisley"]
-//     }
-//   ]
-// },
 
-function Category({ title, subCategories, items }) {
+function Category({ title, items }) {
+  const [count, setCount] = useState(0)
   return (
     <Col>
       <Accordion>
         <Accordion.Item eventKey="0">
           <Accordion.Header>{title}</Accordion.Header>
           {items.map(({ titles, subCategories }) => (
-              <Accordion.Body>
-                <DropdownButton
-                  as={ButtonGroup}
-                  key={titles}
-                  variant="primary"
-                  title={titles}
-                >
-                  {subCategories.map(subCatergory => (
-                    <Dropdown.Item key={subCatergory}>{subCatergory}</Dropdown.Item>
-                  ))}
-                </DropdownButton>
-              </Accordion.Body>
-            ))}
+            <Accordion.Body>
+              <DropdownButton
+                as={ButtonGroup}
+                key={titles}
+                variant="primary"
+                title={titles}
+              >
+                {subCategories.map(subCatergory => (
+                  <Dropdown.Item onClick={() => setCount(String(subCategories))} key={subCatergory}>{subCatergory}</Dropdown.Item>
+                ))}
+              </DropdownButton>
+            </Accordion.Body>
+          ))}
         </Accordion.Item>
       </Accordion>
+      console.log({count})
     </Col>
   );
 }
