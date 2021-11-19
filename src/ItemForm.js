@@ -26,7 +26,7 @@ function Category({ title, items }) {
           ))}
         </Accordion.Item>
       </Accordion>
-      console.log({count})
+      {count}
     </Col>
   );
 }
