@@ -1,10 +1,16 @@
 import { DropdownButton, ButtonGroup, Dropdown, Accordion, Row, Col, Button, Form, } from 'react-bootstrap';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import categories from './categories.json';
 
 
-function Category({ title, items }) {
-  const [count, setCount] = useState(0)
+function Category({ title, items, selectedCategory, setSelectedCategory }) {
+  const handleSelect = (value) => {
+    setSelectedCategory((oldValues) => {
+      console.log(oldValues)
+      console.log( {...oldValues, [title]: value})
+      return {...oldValues, [title]: value};
+    })
+  }
   return (
     <Col>
       <Accordion>
@@ -16,27 +22,29 @@ function Category({ title, items }) {
                 as={ButtonGroup}
                 key={titles}
                 variant="primary"
+                onSelect={handleSelect}
                 title={titles}
               >
-                {subCategories.map(subCatergory => (
-                  <Dropdown.Item onClick={() => setCount(String(subCategories))} key={subCatergory}>{subCatergory}</Dropdown.Item>
+                {subCategories.map(subCategory => (
+                  <Dropdown.Item key={subCategory} eventKey={subCategory}>{subCategory}</Dropdown.Item>
                 ))}
               </DropdownButton>
             </Accordion.Body>
           ))}
         </Accordion.Item>
       </Accordion>
-      {count}
+      {selectedCategory[title]}
     </Col>
   );
 }
 
 export default function AddItemForm({ handleSubmit }) {
+  const [selectedCategory, setSelectedCategory] = useState({});
   return (
     <Form onSubmit={handleSubmit}>
       {categories.map(
         ({ title, items }) => (
-          <Category key={title} title={title} items={items} />
+          <Category key={title} title={title} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} items={items} />
         ),
       )}
       <Form.Group controlId="formFile" className="mb-3">

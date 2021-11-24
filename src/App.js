@@ -5,7 +5,6 @@ import AddItemForm from './ItemForm.js';
 <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
 
 
-//Find way to generate Accordions
 
 
 function App() {
