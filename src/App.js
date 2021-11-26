@@ -16,6 +16,7 @@ function App() {
     const price = e.target[4].value;
     const description = e.target[5].value;
     const store = e.target[6].value;
+    localStorage.setItem({ picture, name, color, amount, price, description, store });
     console.log({ picture, name, color, amount, price, description, store });
     // Put console log for final result here...
     e.preventDefault();
