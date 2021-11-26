@@ -1,7 +1,7 @@
 import './App.css';
-import { } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddItemForm from './ItemForm.js';
+import ItemTable from './Table.js';
 <script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
 
 
@@ -16,7 +16,7 @@ function App() {
     const price = e.target[4].value;
     const description = e.target[5].value;
     const store = e.target[6].value;
-    localStorage.setItem({ picture, name, color, amount, price, description, store });
+    //localStorage.setItem({ picture, name, color, amount, price, description, store });
     console.log({ picture, name, color, amount, price, description, store });
     // Put console log for final result here...
     e.preventDefault();
@@ -26,6 +26,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <AddItemForm handleSubmit={handleSubmit} />
+        <ItemTable/>
       </header>
     </div>
   );
