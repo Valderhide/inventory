@@ -62,14 +62,14 @@ function Category({ title, items, selectedCategory, setSelectedCategory }) {
           {items.map(({ titles, subCategories }) => (
             <Accordion.Body>
               <Dropdown>
-              <Dropdown.Toggle as={CustomToggle} id= "dropdown-custom-components"
-                as={ButtonGroup}
+              <Dropdown.Toggle id= "dropdown-custom-components"
+                as={CustomToggle}
                 key={titles}
                 variant="primary"
                 onSelect={handleSelect}
                 title={titles}
               >
-                Custom Toggle
+                {titles}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu as={CustomMenu}>
