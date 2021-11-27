@@ -1,57 +1,14 @@
-import { FormControl, ButtonGroup, Dropdown, Accordion, Row, Col, Button, Form } from 'react-bootstrap';
-import React, { useState, useEffect } from 'react';
+import { DropdownButton, ButtonGroup, Dropdown, Accordion, Row, Col, Button, Form, } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
 import categories from './categories.json';
 
 
 function Category({ title, items, selectedCategory, setSelectedCategory }) {
-  const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
-    <a
-      href=""
-      ref={ref}
-      onClick={(e) => {
-        e.preventDefault();
-        onClick(e);
-      }}
-    >
-      {children}
-      &#x25bc;
-    </a>
-  ));
-
-  const CustomMenu = React.forwardRef(
-    ({ children, style, className, 'aria-labelledby': labeledBy }, ref) => {
-      const [Cust, setCust] = useState('');
-
-      return (
-        <div
-          ref={ref}
-          style={style}
-          className={className}
-          aria-labelledby={labeledBy}
-        >
-          <FormControl
-            autoFocus
-            className="mx-3 my-2 w-auto"
-            placeholder="Type to filter..."
-            onChange={(e) => setCust(e.target.Cust)}
-            value={Cust}
-          />
-          <ul className="list-unstyled">
-            {React.Children.toArray(children).filter(
-              (child) =>
-                !Cust || child.props.children.toLowerCase().startsWith(Cust),
-            )}
-          </ul>
-        </div>
-      );
-    },
-  );
-
   const handleSelect = (value) => {
     setSelectedCategory((oldValues) => {
       console.log(oldValues)
-      console.log({ ...oldValues, [title]: value })
-      return { ...oldValues, [title]: value };
+      console.log( {...oldValues, [title]: value})
+      return {...oldValues, [title]: value};
     })
   }
   return (
@@ -61,23 +18,17 @@ function Category({ title, items, selectedCategory, setSelectedCategory }) {
           <Accordion.Header>{title}</Accordion.Header>
           {items.map(({ titles, subCategories }) => (
             <Accordion.Body>
-              <Dropdown>
-                <Dropdown.Toggle id="dropdown-custom-components"
-                  as={CustomToggle}
-                  key={titles}
-                  variant="primary"
-                  onSelect={handleSelect}
-                  title={titles}
-                >
-                  {titles}
-                </Dropdown.Toggle>
-
-                <Dropdown.Menu as={CustomMenu}>
-                  {subCategories.map(subCategory => (
-                    <Dropdown.Item key={subCategory} eventKey={subCategory}>{subCategory}</Dropdown.Item>
-                  ))}
-                </Dropdown.Menu>
-              </Dropdown>
+              <DropdownButton
+                as={ButtonGroup}
+                key={titles}
+                variant="primary"
+                onSelect={handleSelect}
+                title={titles}
+              >
+                {subCategories.map(subCategory => (
+                  <Dropdown.Item key={subCategory} eventKey={subCategory}>{subCategory}</Dropdown.Item>
+                ))}
+              </DropdownButton>
             </Accordion.Body>
           ))}
         </Accordion.Item>
