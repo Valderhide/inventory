@@ -1,5 +1,5 @@
-import { FormControl, ButtonGroup, Dropdown, Accordion, Row, Col, Button, Form} from 'react-bootstrap';
-import React, { useState, useEffect} from 'react';
+import { FormControl, ButtonGroup, Dropdown, Accordion, Row, Col, Button, Form } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
 import categories from './categories.json';
 
 
@@ -21,7 +21,7 @@ function Category({ title, items, selectedCategory, setSelectedCategory }) {
   const CustomMenu = React.forwardRef(
     ({ children, style, className, 'aria-labelledby': labeledBy }, ref) => {
       const [Cust, setCust] = useState('');
-  
+
       return (
         <div
           ref={ref}
@@ -46,12 +46,12 @@ function Category({ title, items, selectedCategory, setSelectedCategory }) {
       );
     },
   );
-  
+
   const handleSelect = (value) => {
     setSelectedCategory((oldValues) => {
       console.log(oldValues)
-      console.log( {...oldValues, [title]: value})
-      return {...oldValues, [title]: value};
+      console.log({ ...oldValues, [title]: value })
+      return { ...oldValues, [title]: value };
     })
   }
   return (
@@ -62,20 +62,20 @@ function Category({ title, items, selectedCategory, setSelectedCategory }) {
           {items.map(({ titles, subCategories }) => (
             <Accordion.Body>
               <Dropdown>
-              <Dropdown.Toggle id= "dropdown-custom-components"
-                as={CustomToggle}
-                key={titles}
-                variant="primary"
-                onSelect={handleSelect}
-                title={titles}
-              >
-                {titles}
+                <Dropdown.Toggle id="dropdown-custom-components"
+                  as={CustomToggle}
+                  key={titles}
+                  variant="primary"
+                  onSelect={handleSelect}
+                  title={titles}
+                >
+                  {titles}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu as={CustomMenu}>
-                {subCategories.map(subCategory => (
-                  <Dropdown.Item key={subCategory} eventKey={subCategory}>{subCategory}</Dropdown.Item>
-                ))}
+                  {subCategories.map(subCategory => (
+                    <Dropdown.Item key={subCategory} eventKey={subCategory}>{subCategory}</Dropdown.Item>
+                  ))}
                 </Dropdown.Menu>
               </Dropdown>
             </Accordion.Body>

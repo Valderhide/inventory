@@ -26,7 +26,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <AddItemForm handleSubmit={handleSubmit} />
-        <ItemTable/>
+        <ItemTable />
       </header>
     </div>
   );
