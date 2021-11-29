@@ -12,13 +12,13 @@ function App() {
 
   const handleSubmit = (e) => {
     const offset = categories.length;
-    const picture = e.target[offset].value;
-    const name = e.target[offset + 1].value;
-    const color = e.target[offset + 2].value;
-    const amount = e.target[offset + 3].value;
-    const price = e.target[offset + 4].value;
-    const description = e.target[offset + 5].value;
-    const store = e.target[offset + 6].value;
+    const picture = e.target[offset +9].value;
+    const name = e.target[offset + 10].value;
+    const color = e.target[offset + 11].value;
+    const amount = e.target[offset + 12].value;
+    const price = e.target[offset + 13].value;
+    const description = e.target[offset + 14].value;
+    const store = e.target[offset + 15].value;
     //localStorage.setItem({ picture, name, color, amount, price, description, store });
     console.log({ picture, name, color, amount, price, description, store });
     console.log(e.target)
