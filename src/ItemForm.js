@@ -7,8 +7,8 @@ function Category({ title, items, selectedCategory, setSelectedCategory }) {
   const handleSelect = (value) => {
     setSelectedCategory((oldValues) => {
       console.log(oldValues)
-      console.log( {...oldValues, [title]: value})
-      return {...oldValues, [title]: value};
+      console.log({ ...oldValues, [title]: value })
+      return { ...oldValues, [title]: value };
     })
   }
   return (

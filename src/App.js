@@ -9,7 +9,7 @@ import categories from './categories.json';
 
 
 function App() {
-  
+
   const handleSubmit = (e) => {
     const offset = categories.length;
     const picture = e.target[offset].value;
@@ -21,7 +21,7 @@ function App() {
     const store = e.target[offset + 6].value;
     //localStorage.setItem({ picture, name, color, amount, price, description, store });
     console.log({ picture, name, color, amount, price, description, store });
-    console.log(e.target[offset])
+    console.log(e.target)
     // Put console log for final result here...
     e.preventDefault();
   }
