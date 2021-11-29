@@ -19,9 +19,9 @@ function App() {
     const price = e.target[offset + 13].value;
     const description = e.target[offset + 14].value;
     const store = e.target[offset + 15].value;
-    //localStorage.setItem({ picture, name, color, amount, price, description, store });
+    localStorage.clear();
     console.log({ picture, name, color, amount, price, description, store });
-    console.log(e.target)
+    localStorage.setItem('Data', JSON.stringify({picture, name, color, amount, price, description, store}));
     // Put console log for final result here...
     e.preventDefault();
   }
@@ -30,7 +30,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <AddItemForm handleSubmit={handleSubmit} />
-        <ItemTable />
+        {/*<ItemTable />*/}
       </header>
     </div>
   );
