@@ -21,7 +21,7 @@ function App() {
     const store = e.target[offset + 15].value;
     localStorage.clear();
     console.log({ picture, name, color, amount, price, description, store });
-    localStorage.setItem('Data', JSON.stringify({picture, name, color, amount, price, description, store}));
+    localStorage.setItem('Data', JSON.stringify({a: picture, b: name, c: color, d: amount, e: price, f: description, g: store}));
     // Put console log for final result here...
     e.preventDefault();
   }
