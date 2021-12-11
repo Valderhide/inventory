@@ -2,6 +2,11 @@
   text-align: left;
 }
 
+.categories-container {
+  display: flex;
+  gap: 10px;
+}
+
 .App-header {
   background-color: #9018b4;
   min-height: 100vh;
