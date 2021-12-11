@@ -10,14 +10,13 @@ import categories from './categories.json';
 function App() {
 
   const handleSubmit = (e) => {
-    const offset = categories.length;
-    const picture = e.target[offset + 9].value;
-    const name = e.target[offset + 10].value;
-    const color = e.target[offset + 11].value;
-    const amount = e.target[offset + 12].value;
-    const price = e.target[offset + 13].value;
-    const description = e.target[offset + 14].value;
-    const store = e.target[offset + 15].value;
+    const picture = e.target[0].value;
+    const name = e.target[1].value;
+    const color = e.target[2].value;
+    const amount = e.target[3].value;
+    const price = e.target[4].value;
+    const description = e.target[5].value;
+    const store = e.target[6].value;
     //localStorage.clear();
     console.log({ picture, name, color, amount, price, description, store });
     let originalValue = localStorage.getItem('properties');

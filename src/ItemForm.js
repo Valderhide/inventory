@@ -41,12 +41,13 @@ function Category({ title, items, selectedCategory, setSelectedCategory }) {
 export default function AddItemForm({ handleSubmit }) {
   const [selectedCategory, setSelectedCategory] = useState({});
   return (
+    <>
+    {categories.map(
+      ({ title, items }) => (
+        <Category key={title} title={title} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} items={items} />
+      ),
+    )}
     <Form onSubmit={handleSubmit}>
-      {categories.map(
-        ({ title, items }) => (
-          <Category key={title} title={title} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} items={items} />
-        ),
-      )}
       <Form.Group controlId="formFile" className="mb-3">
         <Form.Label>Item Picture</Form.Label>
         <Form.Control type="file" />
@@ -89,5 +90,6 @@ export default function AddItemForm({ handleSubmit }) {
       </Form.Group>
       <Button variant="secondary" type="submit">Submit</Button>
     </Form>
+    </>
   );
 }
