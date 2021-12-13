@@ -14,7 +14,7 @@ function Category({ title, items, selectedCategory, setSelectedCategory }) {
   return (
     <Col>
       <Accordion>
-        <Accordion.Item eventKey="0" classname ="categories-container">
+        <Accordion.Item eventKey="0" classname="categories-container">
           <Accordion.Header>{title}</Accordion.Header>
           {items.map(({ titles, subCategories }) => (
             <Accordion.Body>
@@ -24,7 +24,7 @@ function Category({ title, items, selectedCategory, setSelectedCategory }) {
                 variant="primary"
                 onSelect={handleSelect}
                 title={titles}
-                
+
               >
                 {subCategories.map(subCategory => (
                   <Dropdown.Item key={subCategory} eventKey={subCategory}>{subCategory}</Dropdown.Item>
