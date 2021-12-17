@@ -57,7 +57,7 @@ function App() {
                 </Button>
               </Modal.Footer>
             </Modal>
-            {/*<ItemTable />*/}
+            <ItemTable />
           </header>
         </div>
       </>
