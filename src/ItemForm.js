@@ -48,7 +48,7 @@ export default function AddItemForm({ handleSubmit }) {
           <Category key={title} title={title} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} items={items} />
         ),
       )}
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} id="submitForm">
         <Form.Group controlId="formFile" className="mb-3">
           <Form.Label>Item Picture</Form.Label>
           <Form.Control type="file" />
@@ -89,7 +89,6 @@ export default function AddItemForm({ handleSubmit }) {
           <Form.Label>Store Location</Form.Label>
           <Form.Control placeholder="Store Location" />
         </Form.Group>
-        <Button variant="secondary" type="submit">Submit</Button>
       </Form>
     </>
   );

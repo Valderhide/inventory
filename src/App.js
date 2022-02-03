@@ -2,7 +2,7 @@ import './App.css';
 import { Button, Modal } from "react-bootstrap"
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AddItemForm from './ItemForm.js';
+import AddItem from './ItemForm.js';
 import ItemTable from './Table.js';
 import categories from './categories.json';
 
@@ -15,7 +15,7 @@ function App() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  {
+  
     const handleSubmit = (e) => {
       const picture = e.target[0].value;
       const name = e.target[1].value;
@@ -47,12 +47,12 @@ function App() {
               <Modal.Header closeButton>
                 <Modal.Title>Add Item Form</Modal.Title>
               </Modal.Header>
-              <Modal.Body> <AddItemForm handleSubmit={handleSubmit} /> </Modal.Body>
+              <Modal.Body> <AddItem handleSubmit={handleSubmit} /> </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                   Close
                 </Button>
-                <Button variant="primary" onClick={handleClose}>
+                <Button variant="primary" onClick={handleClose} type="submit" form="submitForm">
                   Save Changes
                 </Button>
               </Modal.Footer>
@@ -62,7 +62,7 @@ function App() {
         </div>
       </>
     );
-  }
+  
 }
 
 export default App;
