@@ -11,7 +11,7 @@ import categories from './categories.json';
 
 function App() {
   const [show, setShow] = useState(false);
-
+  const tablex = []
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -32,6 +32,9 @@ function App() {
       previousValue.push(newValue);
       localStorage.setItem('properties', JSON.stringify(previousValue));
       // Put console log for final result here...
+
+      tablex.push(localStorage.getItem('properties', JSON.parse(originalValue)))
+      console.log(tablex)
       e.preventDefault();
     }
 
