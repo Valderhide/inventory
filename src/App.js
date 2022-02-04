@@ -2,7 +2,7 @@ import './App.css';
 import { Button, Modal } from "react-bootstrap"
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AddItem from './ItemForm.js';
+import AddItemForm from './ItemForm.js';
 import ItemTable from './Table.js';
 import categories from './categories.json';
 
@@ -18,7 +18,6 @@ function App() {
   
     const handleSubmit = (e) => {
       const picture = e.target[0].value;
-      const tablex=[]
       const name = e.target[1].value;
       const color = e.target[2].value;
       const amount = e.target[3].value;
@@ -26,16 +25,13 @@ function App() {
       const description = e.target[5].value;
       const store = e.target[6].value;
       //localStorage.clear();
-
+      console.log({ picture, name, color, amount, price, description, store });
       let originalValue = localStorage.getItem('properties');
       let previousValue = JSON.parse(originalValue) ?? [];
       let newValue = { picture, name, color, amount, price, description, store };
       previousValue.push(newValue);
       localStorage.setItem('properties', JSON.stringify(previousValue));
       // Put console log for final result here...
-       tablex.push(localStorage.getItem('properties', JSON.parse(originalValue)))
-       console.log({ picture, name, color, amount, price, description, store });
-       console.table({tablex})
       e.preventDefault();
     }
 
@@ -49,14 +45,14 @@ function App() {
 
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
-                <Modal.Title>Add Item Form</Modal.Title>
+                <Modal.Title>Add Item</Modal.Title>
               </Modal.Header>
-              <Modal.Body> <AddItem handleSubmit={handleSubmit} /> </Modal.Body>
+              <Modal.Body> <AddItemForm handleSubmit={handleSubmit} /> </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                   Close
                 </Button>
-                <Button variant="primary" onClick={handleClose} type="submit" form="submitForm">
+                <Button variant="primary" onClick={handleClose}>
                   Save Changes
                 </Button>
               </Modal.Footer>

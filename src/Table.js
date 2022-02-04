@@ -1,6 +1,8 @@
 import { Table } from 'react-bootstrap';
 
-export default function ItemTable() {
+
+export default function ItemTable({data}) {
+  console.log(data)
   return (
     <Table striped borderless hover variant="dark" size="sm">
       <thead>
@@ -13,7 +15,7 @@ export default function ItemTable() {
       </thead>
       <tbody>
         <tr>
-          <td>1</td>
+          <td></td>
           <td>Mark</td>
           <td>Otto</td>
           <td>@mdo</td>
