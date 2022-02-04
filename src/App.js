@@ -11,13 +11,14 @@ import categories from './categories.json';
 
 function App() {
   const [show, setShow] = useState(false);
-  const tablex = []
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   
     const handleSubmit = (e) => {
       const picture = e.target[0].value;
+      const tablex=[]
       const name = e.target[1].value;
       const color = e.target[2].value;
       const amount = e.target[3].value;
@@ -25,16 +26,16 @@ function App() {
       const description = e.target[5].value;
       const store = e.target[6].value;
       //localStorage.clear();
-      console.log({ picture, name, color, amount, price, description, store });
+
       let originalValue = localStorage.getItem('properties');
       let previousValue = JSON.parse(originalValue) ?? [];
       let newValue = { picture, name, color, amount, price, description, store };
       previousValue.push(newValue);
       localStorage.setItem('properties', JSON.stringify(previousValue));
       // Put console log for final result here...
-
-      tablex.push(localStorage.getItem('properties', JSON.parse(originalValue)))
-      console.log(tablex)
+       tablex.push(localStorage.getItem('properties', JSON.parse(originalValue)))
+       console.log({ picture, name, color, amount, price, description, store });
+       console.table({tablex})
       e.preventDefault();
     }
 
