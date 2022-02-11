@@ -38,7 +38,7 @@ function Category({ title, items, selectedCategory, setSelectedCategory }) {
   );
 }
 
-export default function AddItemForm({ handleSubmit }) {
+export default function AddItemForm({makeHandleSubmit}) {
   const [selectedCategory, setSelectedCategory] = useState({});
   return (
     <>
@@ -47,7 +47,7 @@ export default function AddItemForm({ handleSubmit }) {
           <Category key={title} title={title} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} items={items} />
         ),
       )}
-      <Form onSubmit={handleSubmit} id="submitForm">
+      <Form onSubmit={makeHandleSubmit(selectedCategory)} id="submitForm">
         <Form.Group controlId="formFile" className="mb-3">
           <Form.Label>Item Picture</Form.Label>
           <Form.Control type="file" />

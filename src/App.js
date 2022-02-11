@@ -16,7 +16,7 @@ function App() {
   const handleShow = () => setShow(true);
 
   
-    const handleSubmit = (e) => {
+    const makeHandleSubmit = (categories) =>(e) => {
       const picture = e.target[0].value;
       const name = e.target[1].value;
       const color = e.target[2].value;
@@ -28,11 +28,12 @@ function App() {
       console.log({ picture, name, color, amount, price, description, store });
       let originalValue = localStorage.getItem('properties');
       let previousValue = JSON.parse(originalValue) ?? [];
-      let newValue = { picture, name, color, amount, price, description, store };
+      let newValue = { categories, picture, name, color, amount, price, description, store };
       previousValue.push(newValue);
       localStorage.setItem('properties', JSON.stringify(previousValue));
       // Put console log for final result here...
       e.preventDefault();
+      
     }
 
     return (
@@ -47,12 +48,12 @@ function App() {
               <Modal.Header closeButton>
                 <Modal.Title>Add Item</Modal.Title>
               </Modal.Header>
-              <Modal.Body> <AddItemForm handleSubmit={handleSubmit} /> </Modal.Body>
+              <Modal.Body> <AddItemForm makeHandleSubmit={makeHandleSubmit} /> </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                   Close
                 </Button>
-                <Button variant="primary" onClick={handleClose}>
+                <Button variant="primary" onClick={handleClose} type="submit" form="submitForm">
                   Save Changes
                 </Button>
               </Modal.Footer>
