@@ -38,7 +38,7 @@ function Category({ title, items, selectedCategory, setSelectedCategory }) {
   );
 }
 
-export default function AddItemForm({makeHandleSubmit}) {
+export default function AddItemForm({ makeHandleSubmit }) {
   const [selectedCategory, setSelectedCategory] = useState({});
   return (
     <>
