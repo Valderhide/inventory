@@ -4,7 +4,7 @@ import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddItemForm from './ItemForm.js';
 import ItemTable from './Table.js';
-import categories from './categories.json';
+//import categories from './categories.json';
 
 
 
@@ -24,7 +24,6 @@ function App() {
     const description = e.target[5].value;
     const store = e.target[6].value;
     //localStorage.clear();
-    console.log({ picture, name, color, amount, price, description, store });
     let originalValue = localStorage.getItem('properties');
     let previousValue = JSON.parse(originalValue) ?? [];
     let newValue = { categories, picture, name, color, amount, price, description, store };

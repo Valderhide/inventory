@@ -1,13 +1,11 @@
-import { DropdownButton, ButtonGroup, Dropdown, Accordion, Row, Col, Button, Form, } from 'react-bootstrap';
-import { useState, useEffect } from 'react';
+import { DropdownButton, ButtonGroup, Dropdown, Accordion, Row, Col, Form, } from 'react-bootstrap';
+import { useState } from 'react';
 import categories from './categories.json';
 
 
 function Category({ title, items, selectedCategory, setSelectedCategory }) {
   const handleSelect = (value) => {
     setSelectedCategory((oldValues) => {
-      console.log(oldValues)
-      console.log({ ...oldValues, [title]: value })
       return { ...oldValues, [title]: value };
     })
   }
@@ -33,7 +31,6 @@ function Category({ title, items, selectedCategory, setSelectedCategory }) {
           ))}
         </Accordion.Item>
       </Accordion>
-      {selectedCategory[title]}
     </Col>
   );
 }
