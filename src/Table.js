@@ -17,9 +17,13 @@ export default function ItemTable({ data }) {
         {data.map(({ categories, picture, name, color, amount, price, description, store }) => (
           <tr>
             <td></td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td>{picture}</td>
+            <td>{name}</td>
+            <td>{color}</td>
+            <td>{amount}</td>
+            <td>{price}</td>
+            <td>{description}</td>
+            <td>{store}</td>
           </tr>
         ))}
       </tbody>
