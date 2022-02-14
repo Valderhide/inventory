@@ -13,7 +13,8 @@ function App() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const data = JSON.parse(localStorage.getItem('properties'))
+  const [data, setData] = useState(JSON.parse(localStorage.getItem('properties')))
+  const info = JSON.parse(localStorage.getItem('properties'))
 
   const makeHandleSubmit = (categories) => (e) => {
     const picture = e.target[0].value;
@@ -29,6 +30,7 @@ function App() {
     let newValue = { categories, picture, name, color, amount, price, description, store };
     previousValue.push(newValue);
     localStorage.setItem('properties', JSON.stringify(previousValue));
+    setData(originalValue);
     // Put console log for final result here...
     e.preventDefault();
 
@@ -56,7 +58,7 @@ function App() {
               </Button>
             </Modal.Footer>
           </Modal>
-          <ItemTable data={data} />
+          <ItemTable data={data} info={info} />
         </header>
       </div>
     </>

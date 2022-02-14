@@ -1,8 +1,7 @@
 import { Table } from 'react-bootstrap';
 
 
-export default function ItemTable({ data }) {
-  console.log({ data })
+export default function ItemTable({ info }) {
   return (
     <Table striped borderless hover variant="dark" size="sm">
       <thead>
@@ -14,7 +13,7 @@ export default function ItemTable({ data }) {
         </tr>
       </thead>
       <tbody>
-        {data.map(({ categories, picture, name, color, amount, price, description, store }) => (
+        {info.map(({ categories, picture, name, color, amount, price, description, store }) => (
           <tr>
             <td></td>
             <td>{picture}</td>
