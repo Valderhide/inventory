@@ -4,7 +4,7 @@ import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddItemForm from './ItemForm.js';
 import ItemTable from './Table.js';
-//import categories from './categories.json';
+
 
 
 
@@ -13,7 +13,7 @@ function App() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
+  const data = JSON.parse(localStorage.getItem('properties'))
 
   const makeHandleSubmit = (categories) => (e) => {
     const picture = e.target[0].value;
@@ -56,7 +56,7 @@ function App() {
               </Button>
             </Modal.Footer>
           </Modal>
-          <ItemTable />
+          <ItemTable data={data} />
         </header>
       </div>
     </>

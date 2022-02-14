@@ -1,9 +1,8 @@
 import { Table } from 'react-bootstrap';
 
 
-export default function ItemTable() {
-  var data = JSON.parse(localStorage.getItem('properties'));
-  console.log(data)
+export default function ItemTable({ data }) {
+  console.log({ data })
   return (
     <Table striped borderless hover variant="dark" size="sm">
       <thead>
