@@ -36,6 +36,16 @@ function App() {
 
   }
 
+  const removeItem = () => {
+    let properties = JSON.parse(localStorage.getItem('properties'));
+    let newProperties = localStorage.setItem('properties', JSON.stringify(properties))
+    
+    properties.splice(properties, 1)
+      localStorage.setItem('properties', JSON.stringify(properties))
+      setData(newProperties);
+    
+  }
+
   return (
     <>
       <div className="App">
@@ -43,6 +53,7 @@ function App() {
           <Button variant="primary" onClick={handleShow}>
             Add Item
           </Button>
+        
 
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -58,6 +69,9 @@ function App() {
               </Button>
             </Modal.Footer>
           </Modal>
+          <Button variant ="primary" onClick={removeItem}>
+            Remove Item
+          </Button>
           <ItemTable data={data} info={info} />
         </header>
       </div>
