@@ -37,12 +37,12 @@ function App() {
   }
 
   const removeItem = () => {
-    let properties = JSON.parse(localStorage.getItem('properties'));
-    let newProperties = localStorage.setItem('properties', JSON.stringify(properties))
-    
-    properties.splice(properties, 1)
-      localStorage.setItem('properties', JSON.stringify(properties))
-      setData(newProperties);
+    let originalValue = localStorage.getItem('properties');
+    let previousValue = JSON.parse(originalValue) ?? [];
+    let newValue = { };
+    previousValue.splice(0,[1]);
+    localStorage.setItem('properties', JSON.stringify(previousValue));
+    setData(originalValue);
     
   }
 
