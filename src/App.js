@@ -1,5 +1,5 @@
 import './App.css';
-import { Button, Modal } from "react-bootstrap"
+import { Button, Modal, DropdownButton } from "react-bootstrap"
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddItemForm from './ItemForm.js';
@@ -18,7 +18,7 @@ function App() {
 
   const makeHandleSubmit = (categories) => (e) => {
     const picture = e.target[0].value;
-    const name = e.target[1].value;
+    const pName = e.target[1].value;
     const color = e.target[2].value;
     const amount = e.target[3].value;
     const price = e.target[4].value;
@@ -27,7 +27,7 @@ function App() {
     //localStorage.clear();
     let originalValue = localStorage.getItem('properties');
     let previousValue = JSON.parse(originalValue) ?? [];
-    let newValue = { categories, picture, name, color, amount, price, description, store };
+    let newValue = { categories, picture, pName, color, amount, price, description, store };
     previousValue.push(newValue);
     localStorage.setItem('properties', JSON.stringify(previousValue));
     setData(originalValue);
@@ -36,15 +36,14 @@ function App() {
 
   }
 
-  const removeItem = () => {
+  /*const removeItem = () => {
     let originalValue = localStorage.getItem('properties');
     let previousValue = JSON.parse(originalValue) ?? [];
-    let newValue = { };
-    previousValue.splice(0,[1]);
+    previousValue.splice('properties', 1);
     localStorage.setItem('properties', JSON.stringify(previousValue));
     setData(originalValue);
-    
-  }
+
+  }*/
 
   return (
     <>
@@ -53,7 +52,7 @@ function App() {
           <Button variant="primary" onClick={handleShow}>
             Add Item
           </Button>
-        
+
 
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -69,9 +68,12 @@ function App() {
               </Button>
             </Modal.Footer>
           </Modal>
-          <Button variant ="primary" onClick={removeItem}>
+          {info.map(({ pName }))}
+          <DropdownButton variant="primary"
+            title="Remove Item"
+          /*onClick={removeItem}*/>
             Remove Item
-          </Button>
+          </DropdownButton>
           <ItemTable data={data} info={info} />
         </header>
       </div>
