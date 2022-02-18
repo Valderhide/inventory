@@ -1,5 +1,5 @@
 import './App.css';
-import { Button, Modal, DropdownButton } from "react-bootstrap"
+import { Button, Modal, DropdownButton, ButtonGroup, Dropdown } from "react-bootstrap"
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddItemForm from './ItemForm.js';
@@ -36,14 +36,14 @@ function App() {
 
   }
 
-  /*const removeItem = () => {
+  const removeItem = () => {
     let originalValue = localStorage.getItem('properties');
     let previousValue = JSON.parse(originalValue) ?? [];
     previousValue.splice('properties', 1);
     localStorage.setItem('properties', JSON.stringify(previousValue));
     setData(originalValue);
 
-  }*/
+  }
 
   return (
     <>
@@ -68,11 +68,17 @@ function App() {
               </Button>
             </Modal.Footer>
           </Modal>
-          {info.map(({ pName }))}
-          <DropdownButton variant="primary"
-            title="Remove Item"
-          /*onClick={removeItem}*/>
-            Remove Item
+          <DropdownButton
+            as={ButtonGroup}
+            variant="primary"
+            onSelect={removeItem}
+            title='Remove Item'
+
+          >
+            {info.map(({ pName }) => (
+              <Dropdown.Item key={pName} eventKey={pName}>{pName}</Dropdown.Item>
+
+            ))}
           </DropdownButton>
           <ItemTable data={data} info={info} />
         </header>

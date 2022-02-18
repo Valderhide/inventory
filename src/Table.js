@@ -8,7 +8,7 @@ export default function ItemTable({ info }) {
         <tr>
           <th>#</th>
           <th>picture</th>
-          <th>Last Name</th>
+          <th>Product Name</th>
           <th>Username</th>
         </tr>
       </thead>
