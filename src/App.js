@@ -14,7 +14,7 @@ function App() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [data, setData] = useState(JSON.parse(localStorage.getItem('properties')))
-  const info = JSON.parse(localStorage.getItem('properties'))
+  const info = JSON.parse(localStorage.getItem('properties')) || localStorage.setItem('properties', JSON.stringify([]))
 
   const makeHandleSubmit = (categories) => (e) => {
     const picture = e.target[0].value;
