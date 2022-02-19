@@ -44,7 +44,7 @@ function App() {
     setData(originalValue);
 
   }
-
+  console.log(info)
   return (
     <>
       <div className="App">
