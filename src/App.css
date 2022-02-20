@@ -13,7 +13,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /*justify-content: center;*/
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(255, 255, 255);
+}
+
+.table {font-family: 'Arial Narrow';
+background-color: #FFD700;
 }

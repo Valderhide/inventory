@@ -18,7 +18,7 @@ function App() {
 
   const makeHandleSubmit = (categories) => (e) => {
     const picture = e.target[0].value;
-    const pName = e.target[1].value;
+    const name = e.target[1].value;
     const color = e.target[2].value;
     const amount = e.target[3].value;
     const price = e.target[4].value;
@@ -27,7 +27,7 @@ function App() {
     //localStorage.clear();
     let originalValue = localStorage.getItem('properties');
     let previousValue = JSON.parse(originalValue) ?? [];
-    let newValue = { categories, picture, pName, color, amount, price, description, store };
+    let newValue = { categories, picture, name, color, amount, price, description, store };
     previousValue.push(newValue);
     localStorage.setItem('properties', JSON.stringify(previousValue));
     setData(originalValue);
@@ -44,7 +44,8 @@ function App() {
     setData(originalValue);
 
   }
-  console.log(info)
+
+
   return (
     <>
       <div className="App">
@@ -68,6 +69,7 @@ function App() {
               </Button>
             </Modal.Footer>
           </Modal>
+
           <DropdownButton
             as={ButtonGroup}
             variant="primary"
@@ -75,11 +77,12 @@ function App() {
             title='Remove Item'
 
           >
-            {info.map(({ pName }) => (
-              <Dropdown.Item key={pName} eventKey={pName}>{pName}</Dropdown.Item>
+            {info.map(({ name }) => (
+              <Dropdown.Item key={name} eventKey={name}>{name}</Dropdown.Item>
 
             ))}
           </DropdownButton>
+
           <ItemTable data={data} info={info} />
         </header>
       </div>
