@@ -43,12 +43,10 @@ function App() {
 
   }
 
-  const removeItem = (data) => {
-    let originalValue = localStorage.getItem('properties');
-    let previousValue = JSON.parse(originalValue) ?? [];
-    previousValue.splice('properties', 1);
-    localStorage.setItem('properties', JSON.stringify(previousValue));
-    setData(previousValue);
+  const removeItem = () => {
+    const properties = JSON.parse(localStorage.getItem('properties'))
+    const filteredProperties = properties.filter((properties) => properties.id !== "Third")
+    console.log(filteredProperties)
 
   }
 
