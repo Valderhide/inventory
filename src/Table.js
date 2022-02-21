@@ -1,10 +1,10 @@
 import { Table } from 'react-bootstrap';
 
 
-export default function ItemTable({ info }) {
+export default function ItemTable({ data}) {
   return (
     <Table striped borderless hover variant="dark" size="sm">
-      <thead className='table'>
+      <thead>
         <tr>
           <th>#</th>
           <th>picture</th>
@@ -13,7 +13,7 @@ export default function ItemTable({ info }) {
         </tr>
       </thead>
       <tbody>
-        {info.map(({ categories, picture, name, color, amount, price, description, store }) => (
+        {data.map(({ categories, picture, name, color, amount, price, description, store }) => (
           <tr>
             <td></td>
             <td>{picture}</td>
@@ -23,6 +23,10 @@ export default function ItemTable({ info }) {
             <td>{price}</td>
             <td>{description}</td>
             <td>{store}</td>
+            <td>
+<button> test </button>
+
+            </td>
           </tr>
         ))}
       </tbody>

@@ -18,6 +18,8 @@
   color: rgb(255, 255, 255);
 }
 
-.table {font-family: 'Arial Narrow';
-background-color: #FFD700;
+.table th {
+  font-family: 'Arial Narrow';
+  background-color: #FFD700;
+  color: black;
 }

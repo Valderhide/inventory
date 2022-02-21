@@ -1,20 +1,27 @@
-import './App.css';
 import { Button, Modal, DropdownButton, ButtonGroup, Dropdown } from "react-bootstrap"
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import AddItemForm from './ItemForm.js';
 import ItemTable from './Table.js';
 
 
+const getProperties = () => {
+  const properties = JSON.parse(localStorage.getItem('properties'))
 
+  if (!properties) {
+    localStorage.setItem('properties', JSON.stringify([]));
+    return []
+  }
+  return properties
+}
 
 
 function App() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [data, setData] = useState(JSON.parse(localStorage.getItem('properties')))
-  const info = JSON.parse(localStorage.getItem('properties')) || localStorage.setItem('properties', JSON.stringify([]))
+  const [data, setData] = useState(getProperties())
 
   const makeHandleSubmit = (categories) => (e) => {
     const picture = e.target[0].value;
@@ -30,18 +37,18 @@ function App() {
     let newValue = { categories, picture, name, color, amount, price, description, store };
     previousValue.push(newValue);
     localStorage.setItem('properties', JSON.stringify(previousValue));
-    setData(originalValue);
+    setData(previousValue);
     // Put console log for final result here...
     e.preventDefault();
 
   }
 
-  const removeItem = () => {
+  const removeItem = (data) => {
     let originalValue = localStorage.getItem('properties');
     let previousValue = JSON.parse(originalValue) ?? [];
     previousValue.splice('properties', 1);
     localStorage.setItem('properties', JSON.stringify(previousValue));
-    setData(originalValue);
+    setData(previousValue);
 
   }
 
@@ -77,13 +84,13 @@ function App() {
             title='Remove Item'
 
           >
-            {info.map(({ name }) => (
+            {data.map(({ name }) => (
               <Dropdown.Item key={name} eventKey={name}>{name}</Dropdown.Item>
 
             ))}
           </DropdownButton>
 
-          <ItemTable data={data} info={info} />
+          <ItemTable data={data} />
         </header>
       </div>
     </>
