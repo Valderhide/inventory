@@ -43,7 +43,7 @@ function App() {
 
   }
 
-  const removeItem = () => {
+  const onRowDelete = () => {
     const properties = JSON.parse(localStorage.getItem('properties'))
     const filteredProperties = properties.filter((properties) => properties.id !== "Third")
     console.log(filteredProperties)
@@ -78,7 +78,7 @@ function App() {
           <DropdownButton
             as={ButtonGroup}
             variant="primary"
-            onSelect={removeItem}
+            onSelect={onRowDelete}
             title='Remove Item'
 
           >

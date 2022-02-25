@@ -1,7 +1,7 @@
 import { Table, Button } from 'react-bootstrap';
 
 
-export default function ItemTable({ data }) {
+export default function ItemTable({ data, onRowDelete }) {
   return (
     <Table striped borderless hover variant="dark" size="sm">
       <thead>
@@ -24,7 +24,7 @@ export default function ItemTable({ data }) {
             <td>{description}</td>
             <td>{store}</td>
             <td>
-              <Button> Delete </Button>
+            <Button onClick={() => onRowDelete(data.name)}> Delete </Button>
 
             </td>
           </tr>
