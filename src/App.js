@@ -1,4 +1,4 @@
-import { Button, Modal, DropdownButton, ButtonGroup, Dropdown } from "react-bootstrap"
+import { Button, Modal } from "react-bootstrap"
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -44,7 +44,7 @@ function App() {
   }
 
   const onRowDelete = () => {
-    const properties = [1,2,3,4,5,6,7,8,9,10]
+    const properties = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     //JSON.parse(localStorage.getItem('properties'))
     const filteredProperties = (properties) => {
       return (properties % 2 == 0)
@@ -80,20 +80,7 @@ function App() {
             </Modal.Footer>
           </Modal>
 
-          <DropdownButton
-            as={ButtonGroup}
-            variant="primary"
-            onSelect={onRowDelete}
-            title='Remove Item'
-
-          >
-            {data.map(({ name }) => (
-              <Dropdown.Item key={name} eventKey={name}>{name}</Dropdown.Item>
-
-            ))}
-          </DropdownButton>
-
-          <ItemTable data={data} />
+          <ItemTable data={data} onRowDelete={onRowDelete} />
         </header>
       </div>
     </>
