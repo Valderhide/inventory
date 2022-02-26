@@ -44,9 +44,14 @@ function App() {
   }
 
   const onRowDelete = () => {
-    const properties = JSON.parse(localStorage.getItem('properties'))
-    const filteredProperties = properties.filter((properties) => properties.id !== "Third")
-    console.log(filteredProperties)
+    const properties = [1,2,3,4,5,6,7,8,9,10]
+    //JSON.parse(localStorage.getItem('properties'))
+    const filteredProperties = (properties) => {
+      return (properties % 2 == 0)
+    }
+    let props = properties.filter(filteredProperties);
+    //properties.filter((properties) => properties.id !== "Third")
+    console.log(props);
 
   }
 
