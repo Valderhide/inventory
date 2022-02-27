@@ -24,7 +24,7 @@ export default function ItemTable({ data, onRowDelete }) {
             <td>{description}</td>
             <td>{store}</td>
             <td>
-              <Button onClick={() => onRowDelete(data.name)}> Delete </Button>
+              <Button onClick={() => onRowDelete(name)}> Delete </Button>
 
             </td>
           </tr>

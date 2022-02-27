@@ -1,4 +1,4 @@
-import { Button, Modal, Dropdown, DropdownButton, ButtonGroup } from "react-bootstrap"
+import { Button, Modal } from "react-bootstrap"
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -77,19 +77,6 @@ function App() {
               </Button>
             </Modal.Footer>
           </Modal>
-
-          <DropdownButton
-            as={ButtonGroup}
-            variant="primary"
-            onSelect={onRowDelete}
-            title='Remove Item'
-
-          >
-            {data.map(({ name }) => (
-              <Dropdown.Item key={name} eventKey={name}>{name}</Dropdown.Item>
-
-            ))}
-          </DropdownButton>
 
           <ItemTable data={data} onRowDelete={onRowDelete} />
         </header>
