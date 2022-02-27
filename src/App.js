@@ -33,6 +33,7 @@ function App() {
     const store = e.target[6].value;
     //localStorage.clear();
     let originalValue = localStorage.getItem('properties');
+    console.log(originalValue);
     let previousValue = JSON.parse(originalValue) ?? [];
     let newValue = { categories, picture, name, color, amount, price, description, store };
     previousValue.push(newValue);
@@ -46,10 +47,15 @@ function App() {
   const onRowDelete = (name) => {
     const properties = JSON.parse(localStorage.getItem('properties'))
     const newProperties = properties.filter(function (filtered) {
-      return filtered.name === name;
+      return filtered.name !== name;
     }
     );
     console.log(newProperties);
+    localStorage.setItem('properties', JSON.stringify(newProperties));
+    setData(newProperties);
+
+
+
 
   }
 
