@@ -13,7 +13,7 @@ export default function ItemTable({ data, onRowDelete }) {
         </tr>
       </thead>
       <tbody>
-        {data.map(({picture, name, color, amount, price, description, store }) => (
+        {data.map(({ picture, name, color, amount, price, description, store }) => (
           <tr>
             <td></td>
             <td>{picture}</td>
@@ -24,7 +24,7 @@ export default function ItemTable({ data, onRowDelete }) {
             <td>{description}</td>
             <td>{store}</td>
             <td>
-            <Button onClick={() => onRowDelete(data.name)}> Delete </Button>
+              <Button onClick={() => onRowDelete(data.name)}> Delete </Button>
 
             </td>
           </tr>

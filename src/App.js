@@ -43,11 +43,10 @@ function App() {
 
   }
 
-  const onRowDelete = () => {
+  const onRowDelete = (name) => {
     const properties = JSON.parse(localStorage.getItem('properties'))
-    const newProperties = properties.filter(function(filtered)
-    {
-      return filtered.name !=='Fifth'
+    const newProperties = properties.filter(function (filtered) {
+      return filtered.name === name;
     }
     );
     console.log(newProperties);
