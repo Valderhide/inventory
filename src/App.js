@@ -23,6 +23,26 @@ function App() {
   const handleShow = () => setShow(true);
   const [data, setData] = useState(getProperties())
 
+
+  const uploadImage = async (e) => {
+    const file = e.target.files[0]
+    const base64 = await convertBase64(file)
+    console.log(base64)
+  };
+  const convertBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      }
+      fileReader.onerror = (error) => {
+        reject(error);
+      }
+    });
+  };
+
+
   const makeHandleSubmit = (categories) => (e) => {
     const picture = e.target[0].value;
     const name = e.target[1].value;
@@ -67,6 +87,13 @@ function App() {
           <Button variant="primary" onClick={handleShow}>
             Add Item
           </Button>
+
+          <input
+            type="file"
+            onChange={(e) => {
+              uploadImage(e);
+            }}
+          />
 
 
           <Modal show={show} onHide={handleClose}>
