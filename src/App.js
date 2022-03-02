@@ -28,13 +28,9 @@ function App() {
 
 
   const makeHandleSubmit = (categories) => (e) => {
-    const uploadImage = async () => {
-      const file = e.target[0].files[0]
-      const base64 = await convertBase64(file)
-      console.log(base64)
-    };
+    const file = e.target[0].files[0]
     const convertBase64 = (file) => {
-      return new Promise((resolve, reject) => {
+      return (resolve, reject) => {
         const fileReader = new FileReader();
         fileReader.readAsDataURL(file);
         fileReader.onload = () => {
@@ -43,8 +39,11 @@ function App() {
         fileReader.onerror = (error) => {
           reject(error);
         }
-      });
+      };
     };
+    const base64 = convertBase64(file)
+    console.log(base64)
+
     //const picture = e.target[0].value;
     const name = e.target[1].value;
     const color = e.target[2].value;
@@ -52,15 +51,12 @@ function App() {
     const price = e.target[4].value;
     const description = e.target[5].value;
     const store = e.target[6].value;
-    //localStorage.clear();
     let originalValue = localStorage.getItem('properties');
     let previousValue = JSON.parse(originalValue) ?? [];
     let newValue = { categories, /*picture,*/ name, color, amount, price, description, store };
-    uploadImage();
     previousValue.push(newValue);
     localStorage.setItem('properties', JSON.stringify(previousValue));
     setData(previousValue);
-    // Put console log for final result here...
     e.preventDefault();
 
   }
@@ -71,7 +67,7 @@ function App() {
       return filtered.name !== name;
     }
     );
-    console.log(newProperties);
+
     localStorage.setItem('properties', JSON.stringify(newProperties));
     setData(newProperties);
 
@@ -88,14 +84,6 @@ function App() {
           <Button variant="primary" onClick={handleShow}>
             Add Item
           </Button>
-
-          {/*<input
-            type="file"
-            onChange={(e) => {
-              uploadImage(e);
-            }}
-          />*/}
-
 
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
