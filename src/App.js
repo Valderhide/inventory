@@ -24,27 +24,28 @@ function App() {
   const [data, setData] = useState(getProperties())
 
 
-  const uploadImage = async (e) => {
-    const file = e.target.files[0]
-    const base64 = await convertBase64(file)
-    console.log(base64)
-  };
-  const convertBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-      fileReader.onload = () => {
-        resolve(fileReader.result);
-      }
-      fileReader.onerror = (error) => {
-        reject(error);
-      }
-    });
-  };
+
 
 
   const makeHandleSubmit = (categories) => (e) => {
-    const picture = e.target[0].value;
+    const uploadImage = async () => {
+      const file = e.target[0].files[0]
+      const base64 = await convertBase64(file)
+      console.log(base64)
+    };
+    const convertBase64 = (file) => {
+      return new Promise((resolve, reject) => {
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+        fileReader.onload = () => {
+          resolve(fileReader.result);
+        }
+        fileReader.onerror = (error) => {
+          reject(error);
+        }
+      });
+    };
+    //const picture = e.target[0].value;
     const name = e.target[1].value;
     const color = e.target[2].value;
     const amount = e.target[3].value;
@@ -53,9 +54,9 @@ function App() {
     const store = e.target[6].value;
     //localStorage.clear();
     let originalValue = localStorage.getItem('properties');
-    console.log(originalValue);
     let previousValue = JSON.parse(originalValue) ?? [];
-    let newValue = { categories, picture, name, color, amount, price, description, store };
+    let newValue = { categories, /*picture,*/ name, color, amount, price, description, store };
+    uploadImage();
     previousValue.push(newValue);
     localStorage.setItem('properties', JSON.stringify(previousValue));
     setData(previousValue);
@@ -88,12 +89,12 @@ function App() {
             Add Item
           </Button>
 
-          <input
+          {/*<input
             type="file"
             onChange={(e) => {
               uploadImage(e);
             }}
-          />
+          />*/}
 
 
           <Modal show={show} onHide={handleClose}>
