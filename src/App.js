@@ -27,10 +27,13 @@ function App() {
 
 
 
-  const makeHandleSubmit = (categories) => (e) => {
-    const file = e.target[0].files[0]
+  const makeHandleSubmit = (categories) => async (e) => {
+    const uploadImage = async () => {
+      const file = e.target[0].files[0]
+      return await convertBase64(file)
+    }
     const convertBase64 = (file) => {
-      return (resolve, reject) => {
+      return new Promise((resolve, reject) => {
         const fileReader = new FileReader();
         fileReader.readAsDataURL(file);
         fileReader.onload = () => {
@@ -39,10 +42,9 @@ function App() {
         fileReader.onerror = (error) => {
           reject(error);
         }
-      };
+      });
     };
-    const base64 = convertBase64(file)
-    console.log(base64)
+
 
     //const picture = e.target[0].value;
     const name = e.target[1].value;
@@ -53,7 +55,8 @@ function App() {
     const store = e.target[6].value;
     let originalValue = localStorage.getItem('properties');
     let previousValue = JSON.parse(originalValue) ?? [];
-    let newValue = { categories, /*picture,*/ name, color, amount, price, description, store };
+    const base64 = await uploadImage();
+    let newValue = { categories, base64, name, color, amount, price, description, store };
     previousValue.push(newValue);
     localStorage.setItem('properties', JSON.stringify(previousValue));
     setData(previousValue);
