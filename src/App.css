@@ -23,3 +23,8 @@
   background-color: #FFD700;
   color: black;
 }
+
+td img{
+  height: 10vh;
+  width: auto;
+}

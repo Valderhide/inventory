@@ -9,7 +9,12 @@ export default function ItemTable({ data, onRowDelete }) {
           <th>#</th>
           <th>picture</th>
           <th>Product Name</th>
-          <th>Username</th>
+          <th> color </th>
+          <th> amount </th>
+          <th>price</th>
+          <th>description</th>
+          <th>store</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>

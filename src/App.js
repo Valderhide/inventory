@@ -28,10 +28,7 @@ function App() {
 
 
   const makeHandleSubmit = (categories) => async (e) => {
-    const uploadImage = async () => {
-      const file = e.target[0].files[0]
-      return await convertBase64(file)
-    }
+
     const convertBase64 = (file) => {
       return new Promise((resolve, reject) => {
         const fileReader = new FileReader();
@@ -55,7 +52,10 @@ function App() {
     const store = e.target[6].value;
     let originalValue = localStorage.getItem('properties');
     let previousValue = JSON.parse(originalValue) ?? [];
-    const base64 = await uploadImage();
+    let base64 = "";
+    if (e.target[0].files[0]) {
+      base64 = await convertBase64(e.target[0].files[0]);
+    }
     let newValue = { categories, base64, name, color, amount, price, description, store };
     previousValue.push(newValue);
     localStorage.setItem('properties', JSON.stringify(previousValue));
