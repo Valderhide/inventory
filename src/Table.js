@@ -21,7 +21,7 @@ export default function ItemTable({ data, onRowDelete }) {
         {data.map(({ base64, name, color, amount, price, description, store }) => (
           <tr>
             <td></td>
-            <td> <img src={base64} /> </td>
+            <td> <img src={base64} alt=""/> </td>
             <td>{name}</td>
             <td>{color}</td>
             <td>{amount}</td>
