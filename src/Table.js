@@ -1,4 +1,4 @@
-import { Table, Button } from 'react-bootstrap';
+import { Table, /*Button*/ } from 'react-bootstrap';
 
 
 export default function ItemTable({ data, onRowDelete }) {
