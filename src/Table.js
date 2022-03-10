@@ -18,10 +18,11 @@ export default function ItemTable({ data, onRowDelete }) {
         </tr>
       </thead>
       <tbody>
-        {data.map(({categories, base64, name, color, amount, price, description, store }) => (
+      {console.log(data)}
+        {data.map(({categories:items/*, base64, name, color, amount, price, description, store*/ }) => (
           <tr>
-            <td>{`${categories.title},${categories.items}`}</td>
-            <td> <img src={base64} alt=""/> </td>
+            <td>{`${items}`}</td>
+            {/*<td> <img src={base64} alt=""/> </td>
             <td>{name}</td>
             <td>{color}</td>
             <td>{amount}</td>
@@ -31,7 +32,7 @@ export default function ItemTable({ data, onRowDelete }) {
             <td>
               <Button onClick={() => onRowDelete(name)}> Delete </Button>
 
-            </td>
+        </td>*/}
           </tr>
         ))}
       </tbody>
