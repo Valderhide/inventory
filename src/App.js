@@ -103,8 +103,15 @@ function App() {
             </Modal.Footer>
           </Modal>
 
-          <ItemTable data={data} onRowDelete={onRowDelete} />
+          <Button variant="primary">
+Get Shoppin List
+          </Button>
+
+          
         </header>
+        <table className="inv-table">
+        <ItemTable data={data} onRowDelete={onRowDelete} />
+        </table>
       </div>
     </>
   );

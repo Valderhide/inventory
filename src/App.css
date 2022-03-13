@@ -9,12 +9,6 @@
 
 .App-header {
   background-color: #9018b4;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-  font-size: calc(10px + 2vmin);
-  color: rgb(255, 255, 255);
 }
 
 .table th {
@@ -26,4 +20,13 @@
 td img{
   height: 10vh;
   width: auto;
+}
+.inv-table {
+  background-color: #9018b4;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  font-size: calc(10px + 2vmin);
+  color: rgb(255, 255, 255);
 }
