@@ -1,4 +1,4 @@
-import { Table, /*Button*/ } from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap';
 
 
 export default function ItemTable({ data, onRowDelete }) {
@@ -6,7 +6,9 @@ export default function ItemTable({ data, onRowDelete }) {
     <Table striped borderless hover variant="dark" size="sm">
       <thead>
         <tr>
-          <th>#</th>
+          <th>Fabrics</th>
+          <th>Patterns</th>
+          <th>Buttons</th>
           <th>picture</th>
           <th>Product Name</th>
           <th> color </th>
@@ -19,10 +21,12 @@ export default function ItemTable({ data, onRowDelete }) {
       </thead>
       <tbody>
       {console.log(data)}
-        {data.map(({categories:items/*, base64, name, color, amount, price, description, store*/ }) => (
+      {data.map(({categories, base64, name, color, amount, price, description, store}) => (
           <tr>
-            <td>{`${items}`}</td>
-            {/*<td> <img src={base64} alt=""/> </td>
+            <td>{`${categories?.Fabrics}`}</td>
+            <td>{`${categories?.Patterns}`}</td>
+            <td>{`${categories?.Buttons}`}</td>
+            <td> <img src={base64} alt=""/> </td>
             <td>{name}</td>
             <td>{color}</td>
             <td>{amount}</td>
@@ -32,7 +36,7 @@ export default function ItemTable({ data, onRowDelete }) {
             <td>
               <Button onClick={() => onRowDelete(name)}> Delete </Button>
 
-        </td>*/}
+        </td>
           </tr>
         ))}
       </tbody>
