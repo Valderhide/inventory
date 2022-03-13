@@ -88,6 +88,10 @@ function App() {
             Add Item
           </Button>
 
+          <Button variant="primary" onClick={handleShow}>
+            Get Shopping List
+          </Button>
+
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Add Item</Modal.Title>
@@ -103,14 +107,25 @@ function App() {
             </Modal.Footer>
           </Modal>
 
-          <Button variant="primary">
-Get Shoppin List
-          </Button>
+          <Modal /*show={show} onHide={handleClose}*/>
+            <Modal.Header closeButton>
+              <Modal.Title>Shopping List</Modal.Title>
+            </Modal.Header>
+            <Modal.Body> Test </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={handleClose} type="submit" form="submitForm">
+                Export/Print
+              </Button>
+            </Modal.Footer>
+          </Modal>
 
-          
         </header>
+
         <table className="inv-table">
-        <ItemTable data={data} onRowDelete={onRowDelete} />
+          <ItemTable data={data} onRowDelete={onRowDelete} />
         </table>
       </div>
     </>
