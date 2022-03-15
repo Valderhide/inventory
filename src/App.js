@@ -23,10 +23,6 @@ function App() {
   const handleShow = () => setShow(true);
   const [data, setData] = useState(getProperties())
 
-
-
-
-
   const makeHandleSubmit = (categories) => async (e) => {
 
     const convertBase64 = (file) => {
@@ -42,8 +38,6 @@ function App() {
       });
     };
 
-
-    //const picture = e.target[0].value;
     const name = e.target[1].value;
     const color = e.target[2].value;
     const amount = e.target[3].value;
@@ -73,50 +67,63 @@ function App() {
 
     localStorage.setItem('properties', JSON.stringify(newProperties));
     setData(newProperties);
-
-
-
-
   }
 
+
+  const [modalState, setModalState] = useState("close")
+
+  const handleShowAddItem = () => {
+    setModalState("modal-one")
+  }
+
+  const handleShowShoppingList = () => {
+    setModalState("modal-two")
+  }
+
+  const modalClose = () => {
+    setModalState("close")
+  }
 
   return (
     <>
       <div className="App">
         <header className="App-header">
-          <Button variant="primary" onClick={handleShow}>
+
+          {/*Modal Buttons*/}
+          <Button variant="primary" onClick={handleShowAddItem}>
             Add Item
           </Button>
 
-          <Button variant="primary" onClick={handleShow}>
+          <Button variant="primary" onClick={handleShowShoppingList}>
             Get Shopping List
           </Button>
 
-          <Modal show={show} onHide={handleClose}>
+          {/*Modals*/}
+          <Modal show={modalState === "modal-one"} onHide={modalClose}>
             <Modal.Header closeButton>
               <Modal.Title>Add Item</Modal.Title>
             </Modal.Header>
             <Modal.Body> <AddItemForm makeHandleSubmit={makeHandleSubmit} /> </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button variant="secondary" onClick={modalClose}>
                 Close
               </Button>
-              <Button variant="primary" onClick={handleClose} type="submit" form="submitForm">
+              <Button variant="primary" onClick={modalClose} type="submit" form="submitForm">
                 Save Changes
               </Button>
             </Modal.Footer>
           </Modal>
 
-          <Modal /*show={show} onHide={handleClose}*/>
+          <Modal show={modalState === "modal-two"} onHide={modalClose}>
             <Modal.Header closeButton>
               <Modal.Title>Shopping List</Modal.Title>
             </Modal.Header>
             <Modal.Body> Test </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button variant="secondary" onClick={modalClose}>
                 Close
               </Button>
-              <Button variant="primary" onClick={handleClose} type="submit" form="submitForm">
+              <Button variant="primary" onClick={modalClose} type="submit" form="submitForm">
                 Export/Print
               </Button>
             </Modal.Footer>
@@ -124,6 +131,7 @@ function App() {
 
         </header>
 
+        {/*Table*/}
         <table className="inv-table">
           <ItemTable data={data} onRowDelete={onRowDelete} />
         </table>
