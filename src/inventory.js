@@ -89,23 +89,18 @@ function Inv() {
     <>
       <div className="App">
         <header className="App-header">
-          <nav
-            style={{
-              borderBottom: "solid 1px",
-              paddingBottom: "1rem",
-            }}
-          >
-            <Link to="/invoices">Inventory</Link> |{" "}
-            <Link to="/expenses">Shopping List</Link>
-          </nav>
           {/*Modal Buttons*/}
+          <Link to="/">
+            <Button variant="primary">HomePage</Button>
+          </Link>
+
           <Button variant="primary" onClick={handleShowAddItem}>
             Add Item
           </Button>
 
-          <Button variant="primary" onClick={handleShowShoppingList}>
-            Get Shopping List
-          </Button>
+          <Link to="/shoppingList">
+            <Button variant="primary">Shopping List</Button>
+          </Link>
 
           {/*Modals*/}
           <Modal show={modalState === "modal-one"} onHide={modalClose}>
