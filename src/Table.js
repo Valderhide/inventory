@@ -1,5 +1,4 @@
-import { Table, Button } from 'react-bootstrap';
-
+import { Table, Button } from "react-bootstrap";
 
 export default function ItemTable({ data, onRowDelete }) {
   return (
@@ -20,25 +19,37 @@ export default function ItemTable({ data, onRowDelete }) {
         </tr>
       </thead>
       <tbody>
-      {console.log(data)}
-      {data.map(({categories, base64, name, color, amount, price, description, store}) => (
-          <tr>
-            <td>{`${categories?.Fabrics}`}</td>
-            <td>{`${categories?.Patterns}`}</td>
-            <td>{`${categories?.Buttons}`}</td>
-            <td> <img src={base64} alt=""/> </td>
-            <td>{name}</td>
-            <td>{color}</td>
-            <td>{amount}</td>
-            <td>{price}</td>
-            <td>{description}</td>
-            <td>{store}</td>
-            <td>
-              <Button onClick={() => onRowDelete(name)}> Delete </Button>
-
-        </td>
-          </tr>
-        ))}
+        {data.map(
+          ({
+            categories,
+            base64,
+            name,
+            color,
+            amount,
+            price,
+            description,
+            store,
+          }) => (
+            <tr>
+              <td>{`${categories?.Fabrics}`}</td>
+              <td>{`${categories?.Patterns}`}</td>
+              <td>{`${categories?.Buttons}`}</td>
+              <td>
+                {" "}
+                <img src={base64} alt="" />{" "}
+              </td>
+              <td>{name}</td>
+              <td>{color}</td>
+              <td>{amount}</td>
+              <td>{price}</td>
+              <td>{description}</td>
+              <td>{store}</td>
+              <td>
+                <Button onClick={() => onRowDelete(name)}> Delete </Button>
+              </td>
+            </tr>
+          )
+        )}
       </tbody>
     </Table>
   );
