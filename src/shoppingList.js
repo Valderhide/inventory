@@ -1,7 +1,7 @@
-function shopList() {
+export default function Print() {
   return (
-    <div>
-      <h1>Shopping List Page</h1>
-    </div>
+    <main style={{ padding: "1rem 0" }}>
+      <h2>Print</h2>
+    </main>
   );
 }

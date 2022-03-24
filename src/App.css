@@ -12,12 +12,12 @@
 }
 
 .table th {
-  font-family: 'Arial Narrow';
-  background-color: #FFD700;
+  font-family: "Arial Narrow";
+  background-color: #ffd700;
   color: black;
 }
 
-td img{
+td img {
   height: 10vh;
   width: auto;
 }
@@ -29,4 +29,8 @@ td img{
   overflow: auto;
   font-size: calc(10px + 2vmin);
   color: rgb(255, 255, 255);
+}
+
+p {
+  color: black;
 }
