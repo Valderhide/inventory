@@ -1,7 +1,10 @@
+let data = JSON.parse(localStorage.getItem("properties"));
+
+let sum = data.reduce(
+  (accumulator, data) => accumulator + parseInt(data.price),
+  0
+);
+
 export default function Print() {
-  return (
-    <main style={{ padding: "1rem 0" }}>
-      <h2>Print</h2>
-    </main>
-  );
+  return <main> {(window.onload = sum)} </main>;
 }
