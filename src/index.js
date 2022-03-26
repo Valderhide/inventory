@@ -11,6 +11,18 @@ render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
+        <Route
+          index
+          element={
+            <div className="descript">
+              Enim magna sunt laborum deserunt. Magna minim ipsum laborum velit
+              anim occaecat irure culpa exercitation officia esse sunt. Amet
+              cillum voluptate excepteur et cupidatat laboris irure do
+              adipisicing pariatur laborum. Consequat anim elit officia deserunt
+              commodo aliquip qui irure esse.
+            </div>
+          }
+        />
         <Route path="inventory" element={<Inv />} />
         <Route path="shoppingList" element={<Print />} />
       </Route>
