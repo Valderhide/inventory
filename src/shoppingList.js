@@ -26,7 +26,7 @@ export default function Print() {
       </tbody>
       <tfoot>
         <td> Total</td>
-        <td> {(window.onload = sum)} </td>
+        <td> {sum} </td>
       </tfoot>
     </Table>
   );
