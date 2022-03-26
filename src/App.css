@@ -32,5 +32,11 @@ td img {
 }
 
 p {
-  color: black;
+  background-color: black;
+  color: rgb(248, 248, 248);
+  min-height: 100vh;
+}
+
+.home {
+  background-color: #23be04;
 }

@@ -17,6 +17,9 @@ const getProperties = () => {
 };
 
 function Inv() {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const [data, setData] = useState(getProperties());
 
   const makeHandleSubmit = (categories) => async (e) => {
@@ -71,30 +74,11 @@ function Inv() {
     setData(newProperties);
   };
 
-  const [modalState, setModalState] = useState("close");
-
-  const handleShowAddItem = () => {
-    setModalState("modal-one");
-  };
-
-  const handleShowShoppingList = () => {
-    setModalState("modal-two");
-  };
-
-  const modalClose = () => {
-    setModalState("close");
-  };
-
   return (
     <>
       <div className="App">
         <header className="App-header">
-          {/*Modal Buttons*/}
-          <Link to="/">
-            <Button variant="primary">HomePage</Button>
-          </Link>
-
-          <Button variant="primary" onClick={handleShowAddItem}>
+          <Button variant="primary" onClick={handleShow}>
             Add Item
           </Button>
 
@@ -103,7 +87,7 @@ function Inv() {
           </Link>
 
           {/*Modals*/}
-          <Modal show={modalState === "modal-one"} onHide={modalClose}>
+          <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Add Item</Modal.Title>
             </Modal.Header>
@@ -112,36 +96,16 @@ function Inv() {
               <AddItemForm makeHandleSubmit={makeHandleSubmit} />{" "}
             </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={modalClose}>
+              <Button variant="secondary" onClick={handleClose}>
                 Close
               </Button>
               <Button
                 variant="primary"
-                onClick={modalClose}
+                onClick={handleClose}
                 type="submit"
                 form="submitForm"
               >
                 Save Changes
-              </Button>
-            </Modal.Footer>
-          </Modal>
-
-          <Modal show={modalState === "modal-two"} onHide={modalClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Shopping List</Modal.Title>
-            </Modal.Header>
-            <Modal.Body> Test </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={modalClose}>
-                Close
-              </Button>
-              <Button
-                variant="primary"
-                onClick={modalClose}
-                type="submit"
-                form="submitForm"
-              >
-                Export/Print
               </Button>
             </Modal.Footer>
           </Modal>
