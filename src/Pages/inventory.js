@@ -2,9 +2,9 @@ import { Button, Modal } from "react-bootstrap";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import AddItemForm from "./Components/ItemForm.js";
-import ItemTable from "./Components/Table.js";
+import "../Components/App.css";
+import AddItemForm from "../Components/ItemForm.js";
+import ItemTable from "../Components/Table.js";
 
 const getProperties = () => {
   const properties = JSON.parse(localStorage.getItem("properties"));

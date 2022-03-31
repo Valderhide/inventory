@@ -2,8 +2,8 @@ import { render } from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import App from "./App";
-import Inv from "./inventory";
-import Print from "./shoppingList";
+import Inv from "./Pages/inventory";
+import Print from "./Pages/shoppingList";
 
 const rootElement = document.getElementById("root");
 
