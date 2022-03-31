@@ -19,6 +19,18 @@ export default function ItemTable({ data, onRowDelete }) {
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td>Search</td>
+          <td>Search</td>
+          <td>Search</td>
+          <td>Search</td>
+          <td>Search</td>
+          <td>Search</td>
+          <td>Search</td>
+          <td>Search</td>
+          <td>Search</td>
+          <td>Search</td>
+        </tr>
         {data.map(
           ({
             categories,
