@@ -1,14 +1,21 @@
-import { DropdownButton, ButtonGroup, Dropdown, Accordion, Row, Col, Form, } from 'react-bootstrap';
-import { useState } from 'react';
-import categories from './categories.json';
-
+import {
+  DropdownButton,
+  ButtonGroup,
+  Dropdown,
+  Accordion,
+  Row,
+  Col,
+  Form,
+} from "react-bootstrap";
+import { useState } from "react";
+import categories from "./categories.json";
 
 function Category({ title, items, selectedCategory, setSelectedCategory }) {
   const handleSelect = (value) => {
     setSelectedCategory((oldValues) => {
       return { ...oldValues, [title]: value };
-    })
-  }
+    });
+  };
   return (
     <Col>
       <Accordion className="categories-container">
@@ -21,10 +28,11 @@ function Category({ title, items, selectedCategory, setSelectedCategory }) {
                 variant="primary"
                 onSelect={handleSelect}
                 title={titles}
-
               >
-                {subCategories.map(subCategory => (
-                  <Dropdown.Item key={subCategory} eventKey={subCategory}>{subCategory}</Dropdown.Item>
+                {subCategories.map((subCategory) => (
+                  <Dropdown.Item key={subCategory} eventKey={subCategory}>
+                    {subCategory}
+                  </Dropdown.Item>
                 ))}
               </DropdownButton>
             </Accordion.Body>
@@ -39,11 +47,15 @@ export default function AddItemForm({ makeHandleSubmit }) {
   const [selectedCategory, setSelectedCategory] = useState({});
   return (
     <>
-      {categories.map(
-        ({ title, items }) => (
-          <Category key={title} title={title} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} items={items} />
-        ),
-      )}
+      {categories.map(({ title, items }) => (
+        <Category
+          key={title}
+          title={title}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+          items={items}
+        />
+      ))}
       <Form onSubmit={makeHandleSubmit(selectedCategory)} id="submitForm">
         <Form.Group controlId="formFile" className="mb-3">
           <Form.Label>Item Picture</Form.Label>
@@ -79,7 +91,10 @@ export default function AddItemForm({ makeHandleSubmit }) {
         </Row>
         <Form.Group controlId="formDescription">
           <Form.Label>Item Description</Form.Label>
-          <Form.Control placeholder="Item Description" style={{ height: '100px' }} />
+          <Form.Control
+            placeholder="Item Description"
+            style={{ height: "100px" }}
+          />
         </Form.Group>
         <Form.Group controlId="formLocation">
           <Form.Label>Store Location</Form.Label>
