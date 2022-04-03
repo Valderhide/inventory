@@ -5,7 +5,7 @@ export default function Print() {
 
   let sum = data.reduce(
     (accumulator, data) =>
-      accumulator + parseInt(data.amount) * parseInt(data.price),
+      accumulator + parseFloat(data.amount) * parseFloat(data.price),
     0
   );
 
