@@ -1,4 +1,4 @@
-import { Table } from "react-bootstrap";
+import { Table, Button } from "react-bootstrap";
 
 export default function Print() {
   let data = JSON.parse(localStorage.getItem("properties"));
@@ -10,28 +10,31 @@ export default function Print() {
   );
 
   return (
-    <Table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Amount</th>
-          <th>Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map(({ name, price, amount }) => (
+    <div>
+      <Table>
+        <thead>
           <tr>
-            <td>{name}</td>
-            <td>{amount}</td>
-            <td>{price}</td>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Price</th>
           </tr>
-        ))}
-      </tbody>
-      <tfoot>
-        <td> Total</td>
-        <td></td>
-        <td> {sum} </td>
-      </tfoot>
-    </Table>
+        </thead>
+        <tbody>
+          {data.map(({ name, price, amount }) => (
+            <tr>
+              <td>{name}</td>
+              <td>{amount}</td>
+              <td>{price}</td>
+            </tr>
+          ))}
+        </tbody>
+        <tfoot>
+          <td> Total</td>
+          <td></td>
+          <td> {sum} </td>
+        </tfoot>
+      </Table>
+      <Button onClick={window.print}>Print</Button>
+    </div>
   );
 }

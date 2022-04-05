@@ -14,8 +14,8 @@ render(
       <Route path="/" element={<App />}>
         <Route path="Homepage" element={<HomePage />} />
         <Route path="inventory" element={<Inv />} />
-        <Route path="shoppingList" element={<Print />} />
       </Route>
+      <Route path="shoppingList" element={<Print />} />
     </Routes>
   </BrowserRouter>,
   rootElement
