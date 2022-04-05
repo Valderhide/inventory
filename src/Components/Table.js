@@ -20,16 +20,31 @@ export default function ItemTable({ data, onRowDelete }) {
       </thead>
       <tbody>
         <tr>
-          <td>Search</td>
-          <td>Search</td>
-          <td>Search</td>
-          <td>Search</td>
-          <td>Search</td>
-          <td>Search</td>
-          <td>Search</td>
-          <td>Search</td>
-          <td>Search</td>
-          <td>Search</td>
+          <td>
+            <p>
+              <input type="text" size="5" />
+            </p>
+          </td>
+          <td>
+            <p>
+              <input type="text" size="5" />
+            </p>
+          </td>
+          <td>
+            <p>
+              <input type="text" size="5" />
+            </p>
+          </td>
+          <td>
+            <p>
+              <input type="text" size="5" />
+            </p>
+          </td>
+          <td>
+            <p>
+              <input type="text" size="5" />
+            </p>
+          </td>
         </tr>
         {data.map(
           ({
