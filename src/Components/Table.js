@@ -1,6 +1,15 @@
 import { Table, Button } from "react-bootstrap";
 
 export default function ItemTable({ data, onRowDelete }) {
+  const categoryString = (categories) => {
+    Object.entries(categories);
+    // { Fabric: { Color: "Red" } }
+    // Use Object.entries(categories) to turn the categories into string (Fabric:)
+    // Use Object.entires(value) to turn the subcategories into strings (Color:)
+    // Then just append the next value (Red)
+    // Fabric: Color: Red
+  };
+
   return (
     <Table striped borderless hover variant="dark" size="sm">
       <thead>
@@ -58,6 +67,7 @@ export default function ItemTable({ data, onRowDelete }) {
             store,
           }) => (
             <tr>
+              {console.log(categoryString(categories))}
               <td>{`${categories?.Fabrics}`}</td>
               <td>{`${categories?.Patterns}`}</td>
               <td>{`${categories?.Buttons}`}</td>
