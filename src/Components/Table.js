@@ -11,7 +11,7 @@ export default function ItemTable({ data, onRowDelete }) {
   };
 
   return (
-    <Table striped borderless hover variant="dark" size="sm">
+    <Table id="myTable" striped borderless hover variant="dark" size="sm">
       <thead>
         <tr>
           <th>Fabrics</th>
@@ -31,7 +31,13 @@ export default function ItemTable({ data, onRowDelete }) {
         <tr>
           <td>
             <p>
-              <input type="text" size="5" />
+              <input
+                type="text"
+                id="myInput"
+                placeholder="Search"
+                onKeyUp={console.log("filterTable()")}
+                size="5"
+              ></input>
             </p>
           </td>
           <td>
