@@ -57,12 +57,11 @@ export default function ItemTable({ data, onRowDelete }) {
               type="text"
               id="myInput"
               placeholder="Search"
-              onKeyUp={() => console.log(filterTable())}
-              size="15"
+              onKeyUp={() => filterTable()}
+              size="10"
             ></input>
           </p>
         </th>
-        <tr></tr>
         {data.map(
           ({
             categories,
