@@ -51,39 +51,18 @@ export default function ItemTable({ data, onRowDelete }) {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th>
-            <p>
-              <input
-                type="text"
-                id="myInput"
-                placeholder="Search"
-                onKeyUp={() => console.log(filterTable())}
-                size="15"
-              ></input>
-            </p>
-          </th>
-          <td>
-            <p>
-              <input type="text" size="5" />
-            </p>
-          </td>
-          <td>
-            <p>
-              <input type="text" size="5" />
-            </p>
-          </td>
-          <td>
-            <p>
-              <input type="text" size="5" />
-            </p>
-          </td>
-          <td>
-            <p>
-              <input type="text" size="5" />
-            </p>
-          </td>
-        </tr>
+        <th>
+          <p>
+            <input
+              type="text"
+              id="myInput"
+              placeholder="Search"
+              onKeyUp={() => console.log(filterTable())}
+              size="15"
+            ></input>
+          </p>
+        </th>
+        <tr></tr>
         {data.map(
           ({
             categories,
