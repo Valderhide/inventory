@@ -2,21 +2,22 @@ import { Table, Button } from "react-bootstrap";
 
 export default function ItemTable({ data, onRowDelete }) {
   const categoryString = (categories) => {
-    Object.entries(categories);
-    // { Fabric: { Color: "Red" } }
+    let kv = Object.entries(categories)
+      .map((x) => x.join(":"))
+      .join("/n");
+    return kv;
     // Use Object.entries(categories) to turn the categories into string (Fabric:)
     // Use Object.entires(value) to turn the subcategories into strings (Color:)
     // Then just append the next value (Red)
-    // Fabric: Color: Red
+    // Fabric: Red
+    //`${category}:${value}`;
   };
 
   return (
     <Table id="myTable" striped borderless hover variant="dark" size="sm">
       <thead>
         <tr>
-          <th>Fabrics</th>
-          <th>Patterns</th>
-          <th>Buttons</th>
+          <th>Category</th>
           <th>picture</th>
           <th>Product Name</th>
           <th> color </th>
@@ -35,8 +36,8 @@ export default function ItemTable({ data, onRowDelete }) {
                 type="text"
                 id="myInput"
                 placeholder="Search"
-                onKeyUp={console.log("filterTable()")}
-                size="5"
+                onKeyUp={() => console.log("filterTable()")}
+                size="15"
               ></input>
             </p>
           </td>
@@ -73,10 +74,7 @@ export default function ItemTable({ data, onRowDelete }) {
             store,
           }) => (
             <tr>
-              {console.log(categoryString(categories))}
-              <td>{`${categories?.Fabrics}`}</td>
-              <td>{`${categories?.Patterns}`}</td>
-              <td>{`${categories?.Buttons}`}</td>
+              <td>{categoryString(categories)}</td>
               <td>
                 {" "}
                 <img src={base64} alt="" />{" "}

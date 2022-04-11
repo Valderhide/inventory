@@ -11,9 +11,10 @@ import { useState } from "react";
 import categories from "./categories.json";
 
 function Category({ title, items, selectedCategory, setSelectedCategory }) {
+  //replace old selected category with new one
   const handleSelect = (value) => {
     setSelectedCategory((oldValues) => {
-      return { ...oldValues, [title]: value };
+      return { [title]: value };
     });
   };
   return (
