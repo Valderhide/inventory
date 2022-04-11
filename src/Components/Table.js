@@ -13,6 +13,28 @@ export default function ItemTable({ data, onRowDelete }) {
     //`${category}:${value}`;
   };
 
+  const filterTable = () => {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  };
+
   return (
     <Table id="myTable" striped borderless hover variant="dark" size="sm">
       <thead>
@@ -30,17 +52,17 @@ export default function ItemTable({ data, onRowDelete }) {
       </thead>
       <tbody>
         <tr>
-          <td>
+          <th>
             <p>
               <input
                 type="text"
                 id="myInput"
                 placeholder="Search"
-                onKeyUp={() => console.log("filterTable()")}
+                onKeyUp={() => console.log(filterTable())}
                 size="15"
               ></input>
             </p>
-          </td>
+          </th>
           <td>
             <p>
               <input type="text" size="5" />
