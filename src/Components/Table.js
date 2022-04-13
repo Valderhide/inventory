@@ -13,17 +13,39 @@ export default function ItemTable({ data, onRowDelete }) {
     //`${category}:${value}`;
   };
 
-  const filterTable = () => {
+  const filterTable1 = () => {
     // Declare variables
     var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("myInput");
+    input = document.getElementById("myInput1");
     filter = input.value.toUpperCase();
     table = document.getElementById("myTable");
     tr = table.getElementsByTagName("tr");
 
     // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[0];
+      td = tr[i].getElementsByTagName("td")[1];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  };
+
+  const filterTable2 = () => {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("myInput2");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[2];
       if (td) {
         txtValue = td.textContent || td.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -39,8 +61,8 @@ export default function ItemTable({ data, onRowDelete }) {
     <Table id="myTable" striped borderless hover variant="dark" size="sm">
       <thead>
         <tr>
-          <th>Category</th>
           <th>picture</th>
+          <th>Category</th>
           <th>Product Name</th>
           <th> color </th>
           <th> amount </th>
@@ -51,17 +73,30 @@ export default function ItemTable({ data, onRowDelete }) {
         </tr>
       </thead>
       <tbody>
+        <th></th>
         <th>
           <p>
             <input
               type="text"
-              id="myInput"
+              id="myInput1"
               placeholder="Search"
-              onKeyUp={() => filterTable()}
-              size="10"
+              onKeyUp={() => filterTable1()}
+              size="5"
             ></input>
           </p>
         </th>
+        <th>
+          <p>
+            <input
+              type="text"
+              id="myInput2"
+              placeholder="Search"
+              onKeyUp={() => filterTable2()}
+              size="5"
+            ></input>
+          </p>
+        </th>
+
         {data.map(
           ({
             categories,
@@ -74,11 +109,12 @@ export default function ItemTable({ data, onRowDelete }) {
             store,
           }) => (
             <tr>
-              <td>{categoryString(categories)}</td>
               <td>
                 {" "}
                 <img src={base64} alt="" />{" "}
               </td>
+              <td>{categoryString(categories)}</td>
+
               <td>{name}</td>
               <td>{color}</td>
               <td>{amount}</td>
