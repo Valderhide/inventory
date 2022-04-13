@@ -1,23 +1,21 @@
 import { Table, Button } from "react-bootstrap";
+import { useState } from "react";
 
 export default function ItemTable({ data, onRowDelete }) {
+  const [filter1, setFilter1] = useState("l");
+  const [filter2, setFilter2] = useState("2");
+
   const categoryString = (categories) => {
     let kv = Object.entries(categories)
       .map((x) => x.join(":"))
       .join("/n");
     return kv;
-    // Use Object.entries(categories) to turn the categories into string (Fabric:)
-    // Use Object.entires(value) to turn the subcategories into strings (Color:)
-    // Then just append the next value (Red)
-    // Fabric: Red
-    //`${category}:${value}`;
   };
 
-  let col = [0, 1, 2, 3, 4, 5, 6];
+  /*let col = [0, 1, 2, 3, 4, 5, 6];
 
   const filterTable = (col) => {
-    // Declare variables
-    var input, filter, table, tr, td, i, txtValue;
+    let input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
     table = document.getElementById("myTable");
@@ -35,7 +33,7 @@ export default function ItemTable({ data, onRowDelete }) {
         }
       }
     }
-  };
+  };*/
 
   return (
     <Table id="myTable" striped borderless hover variant="dark" size="sm">
@@ -53,29 +51,36 @@ export default function ItemTable({ data, onRowDelete }) {
         </tr>
       </thead>
       <tbody>
-        <th></th>
-        <th>
-          <p>
-            <input
-              type="text"
-              id="myInput"
-              placeholder="Search"
-              onKeyUp={() => filterTable(col[1])}
-              size="5"
-            ></input>
-          </p>
-        </th>
-        <th>
-          <p>
-            <input
-              type="text"
-              id="myInput"
-              placeholder="Search"
-              onKeyUp={() => filterTable(col[2])}
-              size="5"
-            ></input>
-          </p>
-        </th>
+        <tr>
+          <th></th>
+          <th>
+            <p>
+              <input
+                type="text"
+                id="myInput"
+                placeholder="Search"
+                onKeyUp={setFilter1()}
+                size="5"
+              ></input>
+            </p>
+          </th>
+          <th>
+            <p>
+              <input
+                type="text"
+                id="myInput"
+                placeholder="Search"
+                onKeyUp={setFilter2()}
+                size="5"
+              ></input>
+            </p>
+          </th>
+          {console.log(
+            data.filter(
+              (item) => item.contains(filter1) && item.contains(filter2)
+            )
+          )}
+        </tr>
 
         {data.map(
           ({
