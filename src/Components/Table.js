@@ -13,39 +13,19 @@ export default function ItemTable({ data, onRowDelete }) {
     //`${category}:${value}`;
   };
 
-  const filterTable1 = () => {
+  let col = [0, 1, 2, 3, 4, 5, 6];
+
+  const filterTable = (col) => {
     // Declare variables
     var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("myInput1");
+    input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
     table = document.getElementById("myTable");
     tr = table.getElementsByTagName("tr");
 
     // Loop through all table rows, and hide those who don't match the search query
     for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[1];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  };
-
-  const filterTable2 = () => {
-    // Declare variables
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("myInput2");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
-    tr = table.getElementsByTagName("tr");
-
-    // Loop through all table rows, and hide those who don't match the search query
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[2];
+      td = tr[i].getElementsByTagName("td")[col];
       if (td) {
         txtValue = td.textContent || td.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -78,9 +58,9 @@ export default function ItemTable({ data, onRowDelete }) {
           <p>
             <input
               type="text"
-              id="myInput1"
+              id="myInput"
               placeholder="Search"
-              onKeyUp={() => filterTable1()}
+              onKeyUp={() => filterTable(col[1])}
               size="5"
             ></input>
           </p>
@@ -89,9 +69,9 @@ export default function ItemTable({ data, onRowDelete }) {
           <p>
             <input
               type="text"
-              id="myInput2"
+              id="myInput"
               placeholder="Search"
-              onKeyUp={() => filterTable2()}
+              onKeyUp={() => filterTable(col[2])}
               size="5"
             ></input>
           </p>
