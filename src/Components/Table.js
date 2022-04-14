@@ -2,14 +2,21 @@ import { Table, Button } from "react-bootstrap";
 import { useState } from "react";
 
 export default function ItemTable({ data, onRowDelete }) {
-  const [filter1, setFilter1] = useState("l");
-  const [filter2, setFilter2] = useState("2");
-
   const categoryString = (categories) => {
     let kv = Object.entries(categories)
       .map((x) => x.join(":"))
       .join("/n");
     return kv;
+  };
+
+  const [filter1, setFilter1] = useState("l");
+  const [filter2, setFilter2] = useState("b");
+
+  const filterTable = () => {
+    console.log(
+      data.filter((item) => (item.length = 1))
+      //data.filter((item) => item.contains(filter1) && item.contains(filter2)
+    );
   };
 
   /*let col = [0, 1, 2, 3, 4, 5, 6];
@@ -59,7 +66,7 @@ export default function ItemTable({ data, onRowDelete }) {
                 type="text"
                 id="myInput"
                 placeholder="Search"
-                onKeyUp={setFilter1()}
+                onKeyUp={() => filterTable()}
                 size="5"
               ></input>
             </p>
@@ -70,16 +77,11 @@ export default function ItemTable({ data, onRowDelete }) {
                 type="text"
                 id="myInput"
                 placeholder="Search"
-                onKeyUp={setFilter2()}
+                onKeyUp={() => filterTable()}
                 size="5"
               ></input>
             </p>
           </th>
-          {console.log(
-            data.filter(
-              (item) => item.contains(filter1) && item.contains(filter2)
-            )
-          )}
         </tr>
 
         {data.map(
