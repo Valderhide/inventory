@@ -9,38 +9,11 @@ export default function ItemTable({ data, onRowDelete }) {
     return kv;
   };
 
-  const [filter1, setFilter1] = useState("l");
-  const [filter2, setFilter2] = useState("b");
+  const [filter1, setFilter1] = useState("F");
 
   const filterTable = () => {
-    console.log(
-      data.filter((item) => (item.length = 1))
-      //data.filter((item) => item.contains(filter1) && item.contains(filter2)
-    );
+    console.log(data.filter((item) => item.name.includes(filter1)));
   };
-
-  /*let col = [0, 1, 2, 3, 4, 5, 6];
-
-  const filterTable = (col) => {
-    let input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("myTable");
-    tr = table.getElementsByTagName("tr");
-
-    // Loop through all table rows, and hide those who don't match the search query
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[col];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          tr[i].style.display = "";
-        } else {
-          tr[i].style.display = "none";
-        }
-      }
-    }
-  };*/
 
   return (
     <Table id="myTable" striped borderless hover variant="dark" size="sm">
