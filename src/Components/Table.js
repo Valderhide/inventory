@@ -1,5 +1,5 @@
 import { Table, Button } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ItemTable({ data, onRowDelete }) {
   const categoryString = (categories) => {
@@ -9,11 +9,22 @@ export default function ItemTable({ data, onRowDelete }) {
     return kv;
   };
 
-  const [filter1, setFilter1] = useState("F");
+  const [effectTest, setEffectTest] = useState(0);
+
+  useEffect(() => {
+    console.log(effectTest);
+  });
+  /*const [filter1, setFilter1] = useState();
+  const [filter2, setFilter2] = useState();
+  const [filter3, setFilter3] = useState();
+  const [filter4, setFilter4] = useState();
+  const [filter5, setFilter5] = useState();
+  const [filter6, setFilter6] = useState();
+  const [filter7, setFilter7] = useState();
 
   const filterTable = () => {
     console.log(data.filter((item) => item.name.includes(filter1)));
-  };
+  };*/
 
   return (
     <Table id="myTable" striped borderless hover variant="dark" size="sm">
@@ -37,9 +48,9 @@ export default function ItemTable({ data, onRowDelete }) {
             <p>
               <input
                 type="text"
-                id="myInput"
+                id="search1"
                 placeholder="Search"
-                onKeyUp={() => filterTable()}
+                onKeyUp={() => setEffectTest(effectTest + 1)}
                 size="5"
               ></input>
             </p>
@@ -48,9 +59,9 @@ export default function ItemTable({ data, onRowDelete }) {
             <p>
               <input
                 type="text"
-                id="myInput"
+                id="search2"
                 placeholder="Search"
-                onKeyUp={() => filterTable()}
+                //onKeyUp={() => filterTable()}
                 size="5"
               ></input>
             </p>
