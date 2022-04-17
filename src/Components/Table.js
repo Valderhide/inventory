@@ -16,18 +16,21 @@ export default function ItemTable({ data, onRowDelete }) {
   const [filter5, setFilter5] = useState();
   const [filter6, setFilter6] = useState();
   const [filter7, setFilter7] = useState();
-  const [newData, setNewData] = useState();
 
   const [tableInfo, setTableInfo] = useState(data);
+  var newData = data.filter((item) => item.name.includes(filter1));
 
-  /*var newData = data.filter((item) => item.name.includes(filter1));
   useEffect(() => {
-    setTableInfo(newData);
-  }, [filter1, filter2, filter3, filter4, filter5, filter6, filter7]);
+    if (filter1 == "") {
+      setTableInfo(data);
+    } else {
+      setTableInfo(newData);
+    }
+  }, [filter1, filter2, filter3, filter4, filter5, filter6, filter7, data]);
 
   const filterTable = () => {
     console.log(data.filter((item) => item.name.includes(filter1)));
-  };*/
+  };
 
   return (
     <Table id="myTable" striped borderless hover variant="dark" size="sm">
