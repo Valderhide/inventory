@@ -10,26 +10,20 @@ export default function ItemTable({ data, onRowDelete }) {
   };
 
   const [filter1, setFilter1] = useState();
-
-  const [tableInfo, setTableInfo] = useState(data);
-
-  /*
-  This is continously spitting out an empty array
-  var newData = data.filter((item) => item.name.includes(filter1));
-  useEffect(() => {
-    if (newData !== data) {
-      setTableInfo(newData);
-    } else {
-    }
-    console.log(tableInfo);
-  });*/
-
-  /*const [filter2, setFilter2] = useState();
+  const [filter2, setFilter2] = useState();
   const [filter3, setFilter3] = useState();
   const [filter4, setFilter4] = useState();
   const [filter5, setFilter5] = useState();
   const [filter6, setFilter6] = useState();
   const [filter7, setFilter7] = useState();
+  const [newData, setNewData] = useState();
+
+  const [tableInfo, setTableInfo] = useState(data);
+
+  /*var newData = data.filter((item) => item.name.includes(filter1));
+  useEffect(() => {
+    setTableInfo(newData);
+  }, [filter1, filter2, filter3, filter4, filter5, filter6, filter7]);
 
   const filterTable = () => {
     console.log(data.filter((item) => item.name.includes(filter1)));
@@ -59,7 +53,7 @@ export default function ItemTable({ data, onRowDelete }) {
                 type="text"
                 id="search1"
                 placeholder="Search"
-                onKeyUp={() => setFilter1("Bu")}
+                onKeyUp={() => setFilter1("F")}
                 size="5"
               ></input>
             </p>
