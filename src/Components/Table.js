@@ -23,12 +23,15 @@ export default function ItemTable({ data, onRowDelete }) {
     if (notInitialRender.current) {
       const newData = data.filter(
         (item) =>
-          item.name.includes(filter2) &&
-          item.color.includes(filter3) &&
-          item.amount.includes(filter4) &&
-          item.price.includes(filter5) &&
-          item.description.includes(filter6) &&
-          item.store.includes(filter7)
+          categoryString(item.categories)
+            .toLowerCase()
+            .includes(filter1.toLowerCase()) &&
+          item.name.toLowerCase().includes(filter2.toLowerCase()) &&
+          item.color.toLowerCase().includes(filter3.toLowerCase()) &&
+          item.amount.toLowerCase().includes(filter4.toLowerCase()) &&
+          item.price.toLowerCase().includes(filter5.toLowerCase()) &&
+          item.description.toLowerCase().includes(filter6.toLowerCase()) &&
+          item.store.toLowerCase().includes(filter7.toLowerCase())
       );
       setTableInfo(newData);
     } else {
