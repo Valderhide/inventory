@@ -18,10 +18,18 @@ export default function ItemTable({ data, onRowDelete }) {
   const [filter6, setFilter6] = useState();
   const [filter7, setFilter7] = useState();
   const [tableInfo, setTableInfo] = useState(data);
-  const newData = data.filter((item) => item.name.includes(filter1));
 
   useEffect(() => {
     if (notInitialRender.current) {
+      const newData = data.filter(
+        (item) =>
+          item.name.includes(filter2) &&
+          item.color.includes(filter3) &&
+          item.amount.includes(filter4) &&
+          item.price.includes(filter5) &&
+          item.description.includes(filter6) &&
+          item.store.includes(filter7)
+      );
       setTableInfo(newData);
     } else {
       notInitialRender.current = true;
@@ -52,7 +60,9 @@ export default function ItemTable({ data, onRowDelete }) {
                 type="text"
                 id="search1"
                 placeholder="Search"
-                onKeyUp={() => setFilter1("Bu")}
+                onKeyUp={() =>
+                  setFilter1(document.getElementById("search1").value)
+                }
                 size="5"
               ></input>
             </p>
@@ -63,10 +73,79 @@ export default function ItemTable({ data, onRowDelete }) {
                 type="text"
                 id="search2"
                 placeholder="Search"
-                //onKeyUp={() => filterTable()}
+                onKeyUp={() =>
+                  setFilter2(document.getElementById("search2").value)
+                }
                 size="5"
               ></input>
             </p>
+          </th>
+          <th>
+            <p>
+              <input
+                type="text"
+                id="search3"
+                placeholder="Search"
+                onKeyUp={() =>
+                  setFilter3(document.getElementById("search3").value)
+                }
+                size="5"
+              ></input>
+            </p>
+          </th>
+          <th>
+            <p>
+              <input
+                type="text"
+                id="search4"
+                placeholder="Search"
+                onKeyUp={() =>
+                  setFilter4(document.getElementById("search4").value)
+                }
+                size="5"
+              ></input>
+            </p>
+          </th>
+          <th>
+            <p>
+              <input
+                type="text"
+                id="search5"
+                placeholder="Search"
+                onKeyUp={() =>
+                  setFilter5(document.getElementById("search5").value)
+                }
+                size="5"
+              ></input>
+            </p>
+          </th>
+          <th>
+            <p>
+              <input
+                type="text"
+                id="search6"
+                placeholder="Search"
+                onKeyUp={() =>
+                  setFilter6(document.getElementById("search6").value)
+                }
+                size="5"
+              ></input>
+            </p>
+          </th>
+          <th>
+            <th>
+              <p>
+                <input
+                  type="text"
+                  id="search7"
+                  placeholder="Search"
+                  onKeyUp={() =>
+                    setFilter7(document.getElementById("search7").value)
+                  }
+                  size="5"
+                ></input>
+              </p>
+            </th>
           </th>
         </tr>
 
