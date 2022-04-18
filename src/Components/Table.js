@@ -10,24 +10,24 @@ export default function ItemTable({ data, onRowDelete }) {
   };
 
   const notInitialRender = useRef(false);
-  const [filter1, setFilter1] = useState();
-  const [filter2, setFilter2] = useState();
-  const [filter3, setFilter3] = useState();
-  const [filter4, setFilter4] = useState();
-  const [filter5, setFilter5] = useState();
-  const [filter6, setFilter6] = useState();
-  const [filter7, setFilter7] = useState();
+  const [filter1, setFilter1] = useState("");
+  const [filter2, setFilter2] = useState("");
+  const [filter3, setFilter3] = useState("");
+  const [filter4, setFilter4] = useState("");
+  const [filter5, setFilter5] = useState("");
+  const [filter6, setFilter6] = useState("");
+  const [filter7, setFilter7] = useState("");
   const [tableInfo, setTableInfo] = useState(data);
 
   useEffect(() => {
     if (notInitialRender.current) {
       const newData = data.filter(
         (item) =>
-          item.name.includes(filter2) ||
-          item.color.includes(filter3) ||
-          item.amount.includes(filter4) ||
-          item.price.includes(filter5) ||
-          item.description.includes(filter6) ||
+          item.name.includes(filter2) &&
+          item.color.includes(filter3) &&
+          item.amount.includes(filter4) &&
+          item.price.includes(filter5) &&
+          item.description.includes(filter6) &&
           item.store.includes(filter7)
       );
       setTableInfo(newData);
