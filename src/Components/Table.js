@@ -18,6 +18,16 @@ export default function ItemTable({ data, onRowDelete }) {
   const [filter7, setFilter7] = useState("");
   const [tableInfo, setTableInfo] = useState(data);
 
+  const resetFilters = () => {
+    setFilter1("");
+    setFilter2("");
+    setFilter3("");
+    setFilter4("");
+    setFilter5("");
+    setFilter6("");
+    setFilter7("");
+  };
+
   useEffect(() => {
     const newData = data.filter(
       (item) =>
@@ -143,6 +153,9 @@ export default function ItemTable({ data, onRowDelete }) {
                   size="5"
                 ></input>
               </p>
+            </th>
+            <th>
+              <Button onClick={() => resetFilters()}> Reset </Button>
             </th>
           </th>
         </tr>
