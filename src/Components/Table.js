@@ -9,7 +9,6 @@ export default function ItemTable({ data, onRowDelete }) {
     return kv;
   };
 
-  const notInitialRender = useRef(false);
   const [filter1, setFilter1] = useState("");
   const [filter2, setFilter2] = useState("");
   const [filter3, setFilter3] = useState("");
@@ -20,23 +19,19 @@ export default function ItemTable({ data, onRowDelete }) {
   const [tableInfo, setTableInfo] = useState(data);
 
   useEffect(() => {
-    if (notInitialRender.current) {
-      const newData = data.filter(
-        (item) =>
-          categoryString(item.categories)
-            .toLowerCase()
-            .includes(filter1.toLowerCase()) &&
-          item.name.toLowerCase().includes(filter2.toLowerCase()) &&
-          item.color.toLowerCase().includes(filter3.toLowerCase()) &&
-          item.amount.toLowerCase().includes(filter4.toLowerCase()) &&
-          item.price.toLowerCase().includes(filter5.toLowerCase()) &&
-          item.description.toLowerCase().includes(filter6.toLowerCase()) &&
-          item.store.toLowerCase().includes(filter7.toLowerCase())
-      );
-      setTableInfo(newData);
-    } else {
-      notInitialRender.current = true;
-    }
+    const newData = data.filter(
+      (item) =>
+        categoryString(item.categories)
+          .toLowerCase()
+          .includes(filter1.toLowerCase()) &&
+        item.name.toLowerCase().includes(filter2.toLowerCase()) &&
+        item.color.toLowerCase().includes(filter3.toLowerCase()) &&
+        item.amount.toLowerCase().includes(filter4.toLowerCase()) &&
+        item.price.toLowerCase().includes(filter5.toLowerCase()) &&
+        item.description.toLowerCase().includes(filter6.toLowerCase()) &&
+        item.store.toLowerCase().includes(filter7.toLowerCase())
+    );
+    setTableInfo(newData);
   }, [filter1, filter2, filter3, filter4, filter5, filter6, filter7, data]);
 
   return (
