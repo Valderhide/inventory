@@ -1,5 +1,5 @@
 import { Table, Button } from "react-bootstrap";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 export default function ItemTable({ data, onRowDelete }) {
   const categoryString = (categories) => {
@@ -63,100 +63,71 @@ export default function ItemTable({ data, onRowDelete }) {
         <tr>
           <th></th>
           <th>
-            <p>
+            <form>
               <input
                 type="text"
-                id="search1"
-                placeholder="Search"
-                onKeyUp={() =>
-                  setFilter1(document.getElementById("search1").value)
-                }
-                size="5"
-              ></input>
-            </p>
+                value={filter1}
+                onChange={(e) => setFilter1(e.target.value)}
+              />
+            </form>
           </th>
           <th>
-            <p>
+            <form>
               <input
                 type="text"
-                id="search2"
-                placeholder="Search"
-                onKeyUp={() =>
-                  setFilter2(document.getElementById("search2").value)
-                }
-                size="5"
-              ></input>
-            </p>
+                value={filter2}
+                onChange={(e) => setFilter2(e.target.value)}
+              />
+            </form>
           </th>
           <th>
-            <p>
+            <form>
               <input
                 type="text"
-                id="search3"
-                placeholder="Search"
-                onKeyUp={() =>
-                  setFilter3(document.getElementById("search3").value)
-                }
-                size="5"
-              ></input>
-            </p>
+                value={filter3}
+                onChange={(e) => setFilter3(e.target.value)}
+              />
+            </form>
           </th>
           <th>
-            <p>
+            <form>
               <input
                 type="text"
-                id="search4"
-                placeholder="Search"
-                onKeyUp={() =>
-                  setFilter4(document.getElementById("search4").value)
-                }
-                size="5"
-              ></input>
-            </p>
+                value={filter4}
+                onChange={(e) => setFilter4(e.target.value)}
+              />
+            </form>
           </th>
           <th>
-            <p>
+            <form>
               <input
                 type="text"
-                id="search5"
-                placeholder="Search"
-                onKeyUp={() =>
-                  setFilter5(document.getElementById("search5").value)
-                }
-                size="5"
-              ></input>
-            </p>
+                value={filter5}
+                onChange={(e) => setFilter5(e.target.value)}
+              />
+            </form>
           </th>
           <th>
-            <p>
+            <form>
               <input
                 type="text"
-                id="search6"
-                placeholder="Search"
-                onKeyUp={() =>
-                  setFilter6(document.getElementById("search6").value)
-                }
-                size="5"
-              ></input>
-            </p>
+                value={filter6}
+                onChange={(e) => setFilter6(e.target.value)}
+              />
+            </form>
+          </th>
+
+          <th>
+            <form>
+              <input
+                type="text"
+                value={filter7}
+                onChange={(e) => setFilter7(e.target.value)}
+              />
+            </form>
           </th>
           <th>
-            <th>
-              <p>
-                <input
-                  type="text"
-                  id="search7"
-                  placeholder="Search"
-                  onKeyUp={() =>
-                    setFilter7(document.getElementById("search7").value)
-                  }
-                  size="5"
-                ></input>
-              </p>
-            </th>
-            <th>
-              <Button onClick={() => resetFilters()}> Reset </Button>
-            </th>
+            <Button onClick={() => resetFilters()}> Reset </Button>
           </th>
         </tr>
 
