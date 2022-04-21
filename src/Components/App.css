@@ -40,3 +40,11 @@ td img {
 .home {
   background-color: #23be04;
 }
+
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
