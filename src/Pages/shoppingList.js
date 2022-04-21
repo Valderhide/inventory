@@ -1,4 +1,4 @@
-import { Table, Button } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 
 export default function Print() {
   let data = JSON.parse(localStorage.getItem("properties"));

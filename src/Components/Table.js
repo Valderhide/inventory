@@ -68,6 +68,7 @@ export default function ItemTable({ data, onRowDelete }) {
                 type="text"
                 value={filter1}
                 onChange={(e) => setFilter1(e.target.value)}
+                placeholder="Search"
               />
             </form>
           </th>
@@ -77,6 +78,8 @@ export default function ItemTable({ data, onRowDelete }) {
                 type="text"
                 value={filter2}
                 onChange={(e) => setFilter2(e.target.value)}
+                placeholder="Search"
+                size={5}
               />
             </form>
           </th>
@@ -86,6 +89,8 @@ export default function ItemTable({ data, onRowDelete }) {
                 type="text"
                 value={filter3}
                 onChange={(e) => setFilter3(e.target.value)}
+                placeholder="Search"
+                size={5}
               />
             </form>
           </th>
@@ -95,6 +100,8 @@ export default function ItemTable({ data, onRowDelete }) {
                 type="text"
                 value={filter4}
                 onChange={(e) => setFilter4(e.target.value)}
+                placeholder="Search"
+                size={5}
               />
             </form>
           </th>
@@ -104,6 +111,8 @@ export default function ItemTable({ data, onRowDelete }) {
                 type="text"
                 value={filter5}
                 onChange={(e) => setFilter5(e.target.value)}
+                placeholder="Search"
+                size={5}
               />
             </form>
           </th>
@@ -113,16 +122,19 @@ export default function ItemTable({ data, onRowDelete }) {
                 type="text"
                 value={filter6}
                 onChange={(e) => setFilter6(e.target.value)}
+                placeholder="Search"
+                size={5}
               />
             </form>
           </th>
-
           <th>
             <form>
               <input
                 type="text"
                 value={filter7}
                 onChange={(e) => setFilter7(e.target.value)}
+                placeholder="Search"
+                size={5}
               />
             </form>
           </th>
