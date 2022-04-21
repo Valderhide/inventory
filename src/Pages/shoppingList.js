@@ -35,9 +35,9 @@ export default function Print() {
         </tfoot>
       </Table>
 
-      <Button class="no-print" onClick={window.print}>
+      <button class="no-print" onClick={window.print}>
         Print
-      </Button>
+      </button>
     </div>
   );
 }
