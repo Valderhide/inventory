@@ -1,7 +1,14 @@
 import { Table, Button } from "react-bootstrap";
+import { useState } from "react";
 
 export default function Print() {
   let data = JSON.parse(localStorage.getItem("properties"));
+  const [isPrinting, setIsPrinting] = useState(false);
+
+  const printItems = () => {
+    setIsPrinting(true);
+    window.print();
+  };
 
   let sum = data.reduce(
     (accumulator, data) =>
@@ -34,7 +41,14 @@ export default function Print() {
           <td> {sum} </td>
         </tfoot>
       </Table>
-      <Button onClick={window.print}>Print</Button>
+      {!isPrinting && (
+        <Button>
+          <Button name="print" onClick={printItems}>
+            {" "}
+            Print{" "}
+          </Button>
+        </Button>
+      )}
     </div>
   );
 }
