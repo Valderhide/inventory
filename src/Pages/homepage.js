@@ -6,11 +6,15 @@ export default function HomePage() {
     <div className="descript">
       <h2>Introduction</h2>
       <p>
-        Welcome to my Inventory management app. While I was brainstorming ideas
-        for what I wanted my first React app to be, my mother suggested this
-        idea. She has A LOT of fabrics, sewing, and quilting material and I was
-        looking to move in a different direction than my previous Javascript
-        Snake Game; which you can find here link....link.
+        <a href="https://github.com/Valderhide/inventory">Github Page</a>
+      </p>
+      <p>
+        Welcome to my Inventory management app. The reason for making this app
+        is because my mother suggested this idea while I was brainstorming ideas
+        for what I wanted my first React app to be. She has A LOT of fabrics,
+        sewing, and quilting material and I was looking to move in a different
+        direction than my previous Javascript Snake Game; which you can find
+        here link....link.
       </p>
       <h2>How to use the App</h2>
       <p>

@@ -8,6 +8,11 @@ export default function ItemTable({ data, onRowDelete }) {
       .join("/n");
     return kv;
   };
+  let sum = data.reduce(
+    (accumulator, data) =>
+      accumulator + parseFloat(data.amount) * parseFloat(data.price),
+    0
+  );
 
   const [filter1, setFilter1] = useState("");
   const [filter2, setFilter2] = useState("");
@@ -174,6 +179,10 @@ export default function ItemTable({ data, onRowDelete }) {
           )
         )}
       </tbody>
+      <tfoot>
+        <td> Total Value</td>
+        <td> ${sum} </td>
+      </tfoot>
     </Table>
   );
 }
