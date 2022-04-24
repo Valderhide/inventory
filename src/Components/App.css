@@ -32,10 +32,19 @@ td img {
 }
 
 .descript {
-  background-color: black;
+  background-color: rgb(174, 115, 6);
   color: rgb(248, 248, 248);
   min-height: 100vh;
 }
+
+p{color: #2e0887;
+
+}
+
+h2{
+  color: black;
+}
+a{color: aqua;}
 
 .home {
   background-color: #23be04;

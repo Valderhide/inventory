@@ -3,11 +3,12 @@ import { Table } from "react-bootstrap";
 export default function Print() {
   let data = JSON.parse(localStorage.getItem("properties"));
 
-  let sum = data.reduce(
+  let maths = data.reduce(
     (accumulator, data) =>
       accumulator + parseFloat(data.amount) * parseFloat(data.price),
     0
   );
+  let sum = maths.toFixed(2);
 
   return (
     <div>

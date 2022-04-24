@@ -49,7 +49,7 @@ export default function HomePage() {
         system itself
       </p>
       <Link to="/Inventory">
-        <Button variant="light">Inventory</Button>
+        <Button variant="dark">Inventory</Button>
       </Link>
     </div>
   );
