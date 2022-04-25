@@ -52,7 +52,15 @@ export default function ItemTable({ data, onRowDelete }) {
   }, [filter1, filter2, filter3, filter4, filter5, filter6, filter7, data]);
 
   return (
-    <Table id="myTable" striped borderless hover variant="dark" size="sm">
+    <Table
+      id="myTable"
+      striped
+      borderless
+      hover
+      variant="dark"
+      size="sm"
+      className="inv-table"
+    >
       <thead>
         <tr>
           <th>picture</th>
@@ -182,8 +190,10 @@ export default function ItemTable({ data, onRowDelete }) {
         )}
       </tbody>
       <tfoot>
-        <td> Total Value</td>
-        <td> ${sum} </td>
+        <tr>
+          <td> Total Value</td>
+          <td> ${sum} </td>
+        </tr>
       </tfoot>
     </Table>
   );

@@ -112,9 +112,8 @@ function Inv() {
         </header>
 
         {/*Table*/}
-        <table className="inv-table">
-          <ItemTable data={data} onRowDelete={onRowDelete} />
-        </table>
+
+        <ItemTable data={data} onRowDelete={onRowDelete} />
       </div>
     </>
   );

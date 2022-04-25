@@ -12,7 +12,7 @@ render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
-        <Route path="Homepage" element={<HomePage />} />
+        <Route index element={<HomePage />} />
         <Route path="inventory" element={<Inv />} />
       </Route>
       <Route path="shoppingList" element={<Print />} />

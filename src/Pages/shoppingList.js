@@ -4,7 +4,7 @@ export default function Print() {
   let data = JSON.parse(localStorage.getItem("properties"));
 
   let maths = data.reduce(
-    (accumulator, data) =>
+    (accumulator, { amount, price }) =>
       accumulator + parseFloat(data.amount) * parseFloat(data.price),
     0
   );
