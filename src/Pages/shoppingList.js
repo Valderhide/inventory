@@ -18,14 +18,16 @@ export default function Print() {
             <th>Name</th>
             <th>Amount</th>
             <th>Price</th>
+            <th>Store</th>
           </tr>
         </thead>
         <tbody>
-          {data.map(({ name, price, amount }) => (
+          {data.map(({ name, price, amount, store }) => (
             <tr>
               <td>{name}</td>
               <td>{amount}</td>
               <td>{price}</td>
+              <td>{store}</td>
             </tr>
           ))}
         </tbody>
