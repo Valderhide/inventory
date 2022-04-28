@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import { useState, useEffect } from "react";
 
 export default function App() {
   return (
