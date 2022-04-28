@@ -5,7 +5,7 @@ export default function Print() {
 
   let maths = data.reduce(
     (accumulator, { amount, price }) =>
-      accumulator + parseFloat(data.amount) * parseFloat(data.price),
+      accumulator + parseFloat(amount) * parseFloat(price),
     0
   );
   let sum = maths.toFixed(2);
