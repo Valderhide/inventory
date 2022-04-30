@@ -1,5 +1,4 @@
 import { Table, Button } from "react-bootstrap";
-import { useState, useEffect } from "react";
 
 export default function ItemTable({
   data,
@@ -23,6 +22,9 @@ export default function ItemTable({
   categoryString,
   sum,
 }) {
+  const id = () => {
+    return "_" + Math.random().toString(36).substr(2, 9);
+  };
   return (
     <Table
       id="myTable"
@@ -141,19 +143,21 @@ export default function ItemTable({
             description,
             store,
           }) => (
-            <tr>
-              <td>
+            <tr key={id()}>
+              <td key={base64}>
                 {" "}
                 <img src={base64} alt="" />{" "}
               </td>
-              <td>{categoryString(categories)}</td>
+              <td key={categoryString(categories)}>
+                {categoryString(categories)}
+              </td>
 
-              <td>{name}</td>
-              <td>{color}</td>
-              <td>{amount}</td>
-              <td>{price}</td>
-              <td>{description}</td>
-              <td>{store}</td>
+              <td key={name}>{name}</td>
+              <td key={color}>{color}</td>
+              <td key={amount}>{amount}</td>
+              <td key={price}>{price}</td>
+              <td key={description}>{description}</td>
+              <td key={store}>{store}</td>
               <td>
                 <Button onClick={() => onRowDelete(name)}> Delete </Button>
               </td>
