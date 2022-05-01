@@ -1,6 +1,6 @@
 import { Table } from "react-bootstrap";
 
-export default function Print(tableInfo) {
+export default function Print() {
   let filter = JSON.parse(localStorage.getItem("filteredTable"));
 
   let maths = filter.reduce(
