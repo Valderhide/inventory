@@ -123,6 +123,7 @@ function Inv() {
         item.store.toLowerCase().includes(filter7.toLowerCase())
     );
     setTableInfo(newData);
+    localStorage.setItem("filteredTable", JSON.stringify(newData));
   }, [filter1, filter2, filter3, filter4, filter5, filter6, filter7, data]);
 
   return (
@@ -133,7 +134,7 @@ function Inv() {
             Add Item
           </Button>
 
-          <Link to="/shoppingList">
+          <Link to="/shoppingList" state={tableInfo}>
             <Button variant="primary">Shopping List</Button>
           </Link>
 

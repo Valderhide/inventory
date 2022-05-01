@@ -1,14 +1,18 @@
 import { Table } from "react-bootstrap";
 
-export default function Print() {
-  let data = JSON.parse(localStorage.getItem("properties"));
+export default function Print(tableInfo) {
+  let filter = JSON.parse(localStorage.getItem("filteredTable"));
 
-  let maths = data.reduce(
+  let maths = filter.reduce(
     (accumulator, { amount, price }) =>
       accumulator + parseFloat(amount) * parseFloat(price),
     0
   );
   let sum = maths.toFixed(2);
+
+  const id = () => {
+    return "_" + Math.random().toString(36).substr(2, 9);
+  };
 
   return (
     <div>
@@ -22,12 +26,12 @@ export default function Print() {
           </tr>
         </thead>
         <tbody>
-          {data.map(({ name, price, amount, store }) => (
-            <tr>
-              <td>{name}</td>
-              <td>{amount}</td>
-              <td>{price}</td>
-              <td>{store}</td>
+          {filter.map(({ name, price, amount, store }) => (
+            <tr key={id()}>
+              <td key={name}>{name}</td>
+              <td key={amount}>{amount}</td>
+              <td key={price}>{price}</td>
+              <td key={store}>{store}</td>
             </tr>
           ))}
         </tbody>
