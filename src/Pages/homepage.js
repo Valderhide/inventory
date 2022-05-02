@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 
 export default function HomePage() {
   return (
-    <div className="descript">
+    <div>
       <h2>Introduction</h2>
       <p>
         <a href="https://github.com/Valderhide/inventory">Github Page</a>
@@ -48,7 +48,7 @@ export default function HomePage() {
         system itself
       </p>
       <Link to="/inventory">
-        <Button variant="dark">inventory</Button>
+        <Button variant="primary">Inventory Page</Button>
       </Link>
     </div>
   );

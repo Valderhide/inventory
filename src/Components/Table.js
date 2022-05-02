@@ -37,9 +37,17 @@ export default function ItemTable({
       <thead>
         <tr>
           <th>picture</th>
+          <th>Category</th>
+          <th>Product Name</th>
+          <th>color</th>
+          <th>amount</th>
+          <th>price</th>
+          <th>description</th>
+          <th>store</th>
+        </tr>
+        <tr>
           <th>
             <form>
-              <th>Category</th>
               <input
                 type="text"
                 value={filter1}
@@ -51,7 +59,6 @@ export default function ItemTable({
           </th>
           <th>
             <form>
-              <th>Product Name</th>
               <input
                 type="text"
                 value={filter2}
@@ -63,7 +70,6 @@ export default function ItemTable({
           </th>
           <th>
             <form>
-              <th>color</th>
               <input
                 type="text"
                 value={filter3}
@@ -75,7 +81,6 @@ export default function ItemTable({
           </th>
           <th>
             <form>
-              <th>amount</th>
               <input
                 type="text"
                 value={filter4}
@@ -87,7 +92,6 @@ export default function ItemTable({
           </th>
           <th>
             <form>
-              <th>price</th>
               <input
                 type="text"
                 value={filter5}
@@ -99,7 +103,6 @@ export default function ItemTable({
           </th>
           <th>
             <form>
-              <th>description</th>
               <input
                 type="text"
                 value={filter6}
@@ -111,7 +114,6 @@ export default function ItemTable({
           </th>
           <th>
             <form>
-              <th>store</th>
               <input
                 type="text"
                 value={filter7}
