@@ -36,14 +36,14 @@ export default function ItemTable({
     >
       <thead>
         <tr>
-          <th>picture</th>
+          <th>Picture</th>
           <th>Category</th>
           <th>Product Name</th>
-          <th>color</th>
-          <th>amount</th>
-          <th>price</th>
-          <th>description</th>
-          <th>store</th>
+          <th>Color</th>
+          <th>Amount</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Store</th>
           <th></th>
         </tr>
         <tr>
