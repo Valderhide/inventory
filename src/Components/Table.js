@@ -44,8 +44,10 @@ export default function ItemTable({
           <th>price</th>
           <th>description</th>
           <th>store</th>
+          <th></th>
         </tr>
         <tr>
+          <th></th>
           <th>
             <form>
               <input
@@ -123,6 +125,7 @@ export default function ItemTable({
               />
             </form>
           </th>
+
           <th>
             <Button onClick={() => resetFilters()}> Reset </Button>
           </th>

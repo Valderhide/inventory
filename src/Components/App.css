@@ -1,6 +1,7 @@
 .App {
+  background-color: grey;
   text-align: left;
-  background-color: #9018b4;
+  
 }
 
 .categories-container {
@@ -8,9 +9,6 @@
   gap: 10px;
 }
 
-.App-header {
-  background-color: #9018b4;
-}
 
 .table th {
   font-family: "Arial Narrow";
@@ -25,7 +23,7 @@ td img {
 .inv-table {
   
   min-height: 100vh;
-  display: table-header-group;
+  
   flex-direction: column;
   overflow: auto;
   font-size: calc(10px + 2vmin);

@@ -134,7 +134,12 @@ function Inv() {
             Add Item
           </Button>
 
-          <Link to="/shoppingList" state={tableInfo}>
+          <Link
+            to={{
+              pathname: "/shoppingList",
+              state: tableInfo,
+            }}
+          >
             <Button variant="primary">Shopping List</Button>
           </Link>
 
