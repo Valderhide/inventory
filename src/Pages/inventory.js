@@ -16,12 +16,11 @@ const getProperties = () => {
   return properties;
 };
 
-function Inv(filterObj, setFilterObj, tableInfo, setTableInfo) {
+function Inv(filterObj, setFilterObj, tableInfo, setTableInfo, data, setData) {
   //Back end Inventory functions
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [data, setData] = useState(getProperties());
 
   const makeHandleSubmit = (categories) => async (e) => {
     const convertBase64 = (file) => {

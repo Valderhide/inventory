@@ -12,7 +12,18 @@ const rootElement = document.getElementById("root");
 // filter1(state, price), filter2(state, amount), filter3(state), filter4(state)
 // filter(state) = {price: 10, amount: 20}
 
+const getProperties = () => {
+  const properties = JSON.parse(localStorage.getItem("properties"));
+
+  if (!properties) {
+    localStorage.setItem("properties", JSON.stringify([]));
+    return [];
+  }
+  return properties;
+};
+
 const InventoryApp = () => {
+  const [data, setData] = useState(getProperties());
   const [filter1, setFilter1] = useState("");
   const [filter2, setFilter2] = useState("");
   const [filter3, setFilter3] = useState("");
@@ -38,8 +49,8 @@ const InventoryApp = () => {
     setFilter6,
     setFilter7,
   };
-  const [tableData, setTableData] = useState();
-  const [filters, setFilters] = useState();
+  const [tableData, setTableData] = useState(data);
+  const [filters, setFilters] = useState(filterObj);
   return (
     <BrowserRouter>
       <Routes>
@@ -47,7 +58,14 @@ const InventoryApp = () => {
           <Route index element={<HomePage />} />
           <Route
             path="inventory"
-            element={<Inv tableData={tableData} setTableData={setTableData} />}
+            element={
+              <Inv
+                tableData={tableData}
+                setTableData={setTableData}
+                data={data}
+                setData={setData}
+              />
+            }
           />
         </Route>
         <Route
