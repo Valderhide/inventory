@@ -56,6 +56,13 @@ export default function AddItemForm({ makeHandleSubmit }) {
           items={items}
         />
       ))}
+      <form>
+        <input
+          type="text"
+          value={JSON.stringify(selectedCategory)}
+          placeholder={selectedCategory}
+        />
+      </form>
       <Form onSubmit={makeHandleSubmit(selectedCategory)} id="submitForm">
         <Form.Group controlId="formFile" className="mb-3">
           <Form.Label>Item Picture</Form.Label>

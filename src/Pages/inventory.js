@@ -16,11 +16,12 @@ const getProperties = () => {
   return properties;
 };
 
-function Inv(filterObj, setFilterObj, tableInfo, setTableInfo, data, setData) {
+function Inv() {
   //Back end Inventory functions
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const [data, setData] = useState(getProperties());
 
   const makeHandleSubmit = (categories) => async (e) => {
     const convertBase64 = (file) => {
@@ -89,14 +90,23 @@ function Inv(filterObj, setFilterObj, tableInfo, setTableInfo, data, setData) {
   );
   let sum = maths.toFixed(2);
 
+  const [filter1, setFilter1] = useState("");
+  const [filter2, setFilter2] = useState("");
+  const [filter3, setFilter3] = useState("");
+  const [filter4, setFilter4] = useState("");
+  const [filter5, setFilter5] = useState("");
+  const [filter6, setFilter6] = useState("");
+  const [filter7, setFilter7] = useState("");
+  const [tableInfo, setTableInfo] = useState(data);
+
   const resetFilters = () => {
-    setFilterObj.setFilter1("");
-    setFilterObj.setFilter2("");
-    setFilterObj.setFilter3("");
-    setFilterObj.setFilter4("");
-    setFilterObj.setFilter5("");
-    setFilterObj.setFilter6("");
-    setFilterObj.setFilter7("");
+    setFilter1("");
+    setFilter2("");
+    setFilter3("");
+    setFilter4("");
+    setFilter5("");
+    setFilter6("");
+    setFilter7("");
   };
 
   useEffect(() => {
@@ -104,28 +114,17 @@ function Inv(filterObj, setFilterObj, tableInfo, setTableInfo, data, setData) {
       (item) =>
         categoryString(item.categories)
           .toLowerCase()
-          .includes(filterObj.filter1.toLowerCase()) &&
-        item.name.toLowerCase().includes(filterObj.filter2.toLowerCase()) &&
-        item.color.toLowerCase().includes(filterObj.filter3.toLowerCase()) &&
-        item.amount.toLowerCase().includes(filterObj.filter4.toLowerCase()) &&
-        item.price.toLowerCase().includes(filterObj.filter5.toLowerCase()) &&
-        item.description
-          .toLowerCase()
-          .includes(filterObj.filter6.toLowerCase()) &&
-        item.store.toLowerCase().includes(filterObj.filter7.toLowerCase())
+          .includes(filter1.toLowerCase()) &&
+        item.name.toLowerCase().includes(filter2.toLowerCase()) &&
+        item.color.toLowerCase().includes(filter3.toLowerCase()) &&
+        item.amount.toLowerCase().includes(filter4.toLowerCase()) &&
+        item.price.toLowerCase().includes(filter5.toLowerCase()) &&
+        item.description.toLowerCase().includes(filter6.toLowerCase()) &&
+        item.store.toLowerCase().includes(filter7.toLowerCase())
     );
     setTableInfo(newData);
     localStorage.setItem("filteredTable", JSON.stringify(newData));
-  }, [
-    filterObj.filter1,
-    filterObj.filter2,
-    filterObj.filter3,
-    filterObj.filter4,
-    filterObj.filter5,
-    filterObj.filter6,
-    filterObj.filter7,
-    data,
-  ]);
+  }, [filter1, filter2, filter3, filter4, filter5, filter6, filter7, data]);
 
   return (
     <>
@@ -174,20 +173,20 @@ function Inv(filterObj, setFilterObj, tableInfo, setTableInfo, data, setData) {
         <ItemTable
           data={data}
           onRowDelete={onRowDelete}
-          filter1={filterObj.filter1}
-          filter2={filterObj.filter2}
-          filter3={filterObj.filter3}
-          filter4={filterObj.filter4}
-          filter5={filterObj.filter5}
-          filter6={filterObj.filter6}
-          filter7={filterObj.filter7}
-          setFilter1={setFilterObj.setFilter1}
-          setFilter2={setFilterObj.setFilter2}
-          setFilter3={setFilterObj.setFilter3}
-          setFilter4={setFilterObj.setFilter4}
-          setFilter5={setFilterObj.setFilter5}
-          setFilter6={setFilterObj.setFilter6}
-          setFilter7={setFilterObj.setFilter7}
+          filter1={filter1}
+          filter2={filter2}
+          filter3={filter3}
+          filter4={filter4}
+          filter5={filter5}
+          filter6={filter6}
+          filter7={filter7}
+          setFilter1={setFilter1}
+          setFilter2={setFilter2}
+          setFilter3={setFilter3}
+          setFilter4={setFilter4}
+          setFilter5={setFilter5}
+          setFilter6={setFilter6}
+          setFilter7={setFilter7}
           resetFilters={resetFilters}
           tableInfo={tableInfo}
           categoryString={categoryString}
