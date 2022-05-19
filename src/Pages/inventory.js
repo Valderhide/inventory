@@ -1,27 +1,40 @@
 import { Button, Modal } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../components/App.css";
 import AddItemForm from "../components/ItemForm.js";
 import ItemTable from "../components/Table.js";
 
-const getProperties = () => {
-  const properties = JSON.parse(localStorage.getItem("properties"));
-
-  if (!properties) {
-    localStorage.setItem("properties", JSON.stringify([]));
-    return [];
+export const categoryString = (categories) => {
+  let entries = Object.entries(categories);
+  if (entries.length === 0) {
+    return "No Category Selected ";
   }
-  return properties;
+  let kv = entries.map((x) => x.join(":")).join("/n");
+  return kv;
 };
 
-function Inv() {
+function Inv({
+  tableData,
+  setTableData,
+  data,
+  setData,
+  setFilterObj: {
+    setFilter1,
+    setFilter2,
+    setFilter3,
+    setFilter4,
+    setFilter5,
+    setFilter6,
+    setFilter7,
+  },
+  filterObj: { filter1, filter2, filter3, filter4, filter5, filter6, filter7 },
+}) {
   //Back end Inventory functions
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [data, setData] = useState(getProperties());
 
   const makeHandleSubmit = (categories) => async (e) => {
     const convertBase64 = (file) => {
@@ -76,12 +89,6 @@ function Inv() {
   };
 
   //Table functions
-  const categoryString = (categories) => {
-    let kv = Object.entries(categories)
-      .map((x) => x.join(":"))
-      .join("/n");
-    return kv;
-  };
 
   let maths = data.reduce(
     (accumulator, data) =>
@@ -90,14 +97,14 @@ function Inv() {
   );
   let sum = maths.toFixed(2);
 
-  const [filter1, setFilter1] = useState("");
+  /*const [filter1, setFilter1] = useState("");
   const [filter2, setFilter2] = useState("");
   const [filter3, setFilter3] = useState("");
   const [filter4, setFilter4] = useState("");
   const [filter5, setFilter5] = useState("");
   const [filter6, setFilter6] = useState("");
   const [filter7, setFilter7] = useState("");
-  const [tableInfo, setTableInfo] = useState(data);
+  const [tableInfo, setTableInfo] = useState(data);*/
 
   const resetFilters = () => {
     setFilter1("");
@@ -108,23 +115,6 @@ function Inv() {
     setFilter6("");
     setFilter7("");
   };
-
-  useEffect(() => {
-    const newData = data.filter(
-      (item) =>
-        categoryString(item.categories)
-          .toLowerCase()
-          .includes(filter1.toLowerCase()) &&
-        item.name.toLowerCase().includes(filter2.toLowerCase()) &&
-        item.color.toLowerCase().includes(filter3.toLowerCase()) &&
-        item.amount.toLowerCase().includes(filter4.toLowerCase()) &&
-        item.price.toLowerCase().includes(filter5.toLowerCase()) &&
-        item.description.toLowerCase().includes(filter6.toLowerCase()) &&
-        item.store.toLowerCase().includes(filter7.toLowerCase())
-    );
-    setTableInfo(newData);
-    localStorage.setItem("filteredTable", JSON.stringify(newData));
-  }, [filter1, filter2, filter3, filter4, filter5, filter6, filter7, data]);
 
   return (
     <>
@@ -137,7 +127,7 @@ function Inv() {
           <Link
             to={{
               pathname: "/shoppingList",
-              state: tableInfo,
+              state: tableData,
             }}
           >
             <Button variant="primary">Shopping List</Button>
@@ -188,8 +178,7 @@ function Inv() {
           setFilter6={setFilter6}
           setFilter7={setFilter7}
           resetFilters={resetFilters}
-          tableInfo={tableInfo}
-          categoryString={categoryString}
+          tableData={tableData}
           sum={sum}
         />
       </div>

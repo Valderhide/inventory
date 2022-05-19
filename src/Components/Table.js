@@ -1,4 +1,5 @@
 import { Table, Button } from "react-bootstrap";
+import { categoryString } from "../pages/Inventory";
 
 export default function ItemTable({
   onRowDelete,
@@ -17,8 +18,7 @@ export default function ItemTable({
   setFilter6,
   setFilter7,
   resetFilters,
-  tableInfo,
-  categoryString,
+  tableData,
   sum,
 }) {
   const id = () => {
@@ -132,7 +132,7 @@ export default function ItemTable({
         </tr>
       </thead>
       <tbody>
-        {tableInfo.map(
+        {tableData.map(
           ({
             categories,
             base64,

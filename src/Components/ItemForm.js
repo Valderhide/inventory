@@ -9,6 +9,7 @@ import {
 } from "react-bootstrap";
 import { useState } from "react";
 import categories from "./categories.json";
+import { categoryString } from "../pages/Inventory";
 
 function Category({ title, items, selectedCategory, setSelectedCategory }) {
   const handleSelect = (value) => {
@@ -56,13 +57,7 @@ export default function AddItemForm({ makeHandleSubmit }) {
           items={items}
         />
       ))}
-      <form>
-        <input
-          type="text"
-          value={JSON.stringify(selectedCategory)}
-          placeholder={selectedCategory}
-        />
-      </form>
+      <p>{categoryString(selectedCategory)}</p>
       <Form onSubmit={makeHandleSubmit(selectedCategory)} id="submitForm">
         <Form.Group controlId="formFile" className="mb-3">
           <Form.Label>Item Picture</Form.Label>

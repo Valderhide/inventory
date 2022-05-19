@@ -1,9 +1,7 @@
 import { Table } from "react-bootstrap";
 
-export default function Print() {
-  let filter = JSON.parse(localStorage.getItem("filteredTable"));
-
-  let maths = filter.reduce(
+export default function Print({ tableData }) {
+  let maths = tableData.reduce(
     (accumulator, { amount, price }) =>
       accumulator + parseFloat(amount) * parseFloat(price),
     0
@@ -26,7 +24,7 @@ export default function Print() {
           </tr>
         </thead>
         <tbody>
-          {filter.map(({ name, price, amount, store }) => (
+          {tableData.map(({ name, price, amount, store }) => (
             <tr key={id()}>
               <td key={name}>{name}</td>
               <td key={amount}>{amount}</td>
