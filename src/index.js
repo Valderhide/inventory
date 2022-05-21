@@ -23,18 +23,18 @@ const getProperties = () => {
   return properties;
 };
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case { category: e.target.value }:
-      console.log("Sucess");
-    default:
-      console.log("failed");
-  }
+const filters = {
+  category: "",
+  product: "",
+};
+
+const reducer = (state) => {
+  state.splice([filters]);
 };
 
 const InventoryApp = () => {
   const [data, setData] = useState(getProperties());
-  const [state, dispatch] = useReducer(reducer, data);
+  const [state, dispatch] = useReducer(reducer, filters);
   const [filter1, setFilter1] = useState("");
   const [filter2, setFilter2] = useState("");
   const [filter3, setFilter3] = useState("");
@@ -95,6 +95,7 @@ const InventoryApp = () => {
                 setFilterObj={setFilterObj}
                 filterObj={filterObj}
                 dispatch={dispatch}
+                state={state}
               />
             }
           />

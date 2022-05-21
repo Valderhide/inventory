@@ -2,6 +2,7 @@ import { Table, Button } from "react-bootstrap";
 import { categoryString } from "../pages/Inventory";
 
 export default function ItemTable({
+  state,
   dispatch,
   onRowDelete,
   filter1,
@@ -53,10 +54,8 @@ export default function ItemTable({
             <form>
               <input
                 type="text"
-                value={filter1}
-                onChange={(e) =>
-                  dispatch({ type: { category: e.target.value } })
-                }
+                value={state}
+                onChange={(e) => dispatch({ category: e.target.value })}
                 //onChange={(e) => setFilter1(e.target.value)}
                 placeholder="Search"
                 size={5}
@@ -67,10 +66,8 @@ export default function ItemTable({
             <form>
               <input
                 type="text"
-                value={filter2}
-                onChange={(e) =>
-                  dispatch({ type: { product: e.target.value } })
-                }
+                value={state}
+                onChange={(e) => dispatch({ product: e.target.value })}
                 //onChange={(e) => setFilter2(e.target.value)}
                 placeholder="Search"
                 size={5}

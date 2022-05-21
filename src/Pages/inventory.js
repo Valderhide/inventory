@@ -16,6 +16,7 @@ export const categoryString = (categories) => {
 };
 
 function Inv({
+  state,
   dispatch,
   tableData,
   setTableData,
@@ -182,6 +183,7 @@ function Inv({
           tableData={tableData}
           sum={sum}
           dispatch={dispatch}
+          state={state}
         />
       </div>
     </>
