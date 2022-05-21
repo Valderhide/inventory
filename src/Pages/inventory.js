@@ -16,6 +16,7 @@ export const categoryString = (categories) => {
 };
 
 function Inv({
+  dispatch,
   tableData,
   setTableData,
   data,
@@ -180,6 +181,7 @@ function Inv({
           resetFilters={resetFilters}
           tableData={tableData}
           sum={sum}
+          dispatch={dispatch}
         />
       </div>
     </>

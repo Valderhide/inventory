@@ -1,6 +1,6 @@
 import { render } from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import "./index.css";
 import App from "./App";
 import Inv from "./pages/Inventory";
@@ -23,8 +23,18 @@ const getProperties = () => {
   return properties;
 };
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case { category: e.target.value }:
+      console.log("Sucess");
+    default:
+      console.log("failed");
+  }
+};
+
 const InventoryApp = () => {
   const [data, setData] = useState(getProperties());
+  const [state, dispatch] = useReducer(reducer, data);
   const [filter1, setFilter1] = useState("");
   const [filter2, setFilter2] = useState("");
   const [filter3, setFilter3] = useState("");
@@ -84,6 +94,7 @@ const InventoryApp = () => {
                 setData={setData}
                 setFilterObj={setFilterObj}
                 filterObj={filterObj}
+                dispatch={dispatch}
               />
             }
           />
