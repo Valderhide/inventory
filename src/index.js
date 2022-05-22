@@ -24,7 +24,7 @@ const getProperties = () => {
 };
 
 const reducer = (state, event) => {
-  state = event;
+  state.category = event;
   return state;
 };
 
