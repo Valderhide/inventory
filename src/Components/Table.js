@@ -54,7 +54,7 @@ export default function ItemTable({
             <form>
               <input
                 type="text"
-                value={state}
+                value={JSON.stringify(state.category)}
                 onChange={(e) => dispatch({ category: e.target.value })}
                 //onChange={(e) => setFilter1(e.target.value)}
                 placeholder="Search"
@@ -66,7 +66,7 @@ export default function ItemTable({
             <form>
               <input
                 type="text"
-                value={state}
+                value={JSON.stringify(state.product)}
                 onChange={(e) => dispatch({ product: e.target.value })}
                 //onChange={(e) => setFilter2(e.target.value)}
                 placeholder="Search"
