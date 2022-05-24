@@ -23,14 +23,16 @@ const getProperties = () => {
   return properties;
 };
 
+const filters = {};
+
 const reducer = (state, event) => {
-  state.category = event;
+  state = { ...filters, event };
   return state;
 };
 
 const InventoryApp = () => {
   const [data, setData] = useState(getProperties());
-  const [state, dispatch] = useReducer(reducer, {});
+  const [state, dispatch] = useReducer(reducer, filters);
   const [filter1, setFilter1] = useState("");
   const [filter2, setFilter2] = useState("");
   const [filter3, setFilter3] = useState("");
@@ -77,7 +79,6 @@ const InventoryApp = () => {
 
   return (
     <BrowserRouter>
-      {console.log(state)}
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<HomePage />} />
@@ -102,6 +103,7 @@ const InventoryApp = () => {
           element={<Print tableData={tableData} setTableData={setTableData} />}
         />
       </Routes>
+      {console.log(state)}
     </BrowserRouter>
   );
 };
