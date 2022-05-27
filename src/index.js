@@ -4,7 +4,7 @@ import { useState, useEffect, useReducer } from "react";
 import "./index.css";
 import App from "./App";
 import Inv from "./pages/Inventory";
-import Print from "./pages/Print Shopping List";
+import Print from "./pages/Print";
 import HomePage from "./pages/Homepage";
 import { categoryString } from "./pages/Inventory";
 
@@ -24,8 +24,7 @@ const getProperties = () => {
 };
 
 const reducer = (state, event) => {
-  state = { ...state, ...event };
-  return state;
+  return { ...state, ...event };
 };
 
 const InventoryApp = () => {
@@ -39,31 +38,6 @@ const InventoryApp = () => {
     description: "",
     store: "",
   });
-  const [filter1, setFilter1] = useState("");
-  const [filter2, setFilter2] = useState("");
-  const [filter3, setFilter3] = useState("");
-  const [filter4, setFilter4] = useState("");
-  const [filter5, setFilter5] = useState("");
-  const [filter6, setFilter6] = useState("");
-  const [filter7, setFilter7] = useState("");
-  let filterObj = {
-    filter1,
-    filter2,
-    filter3,
-    filter4,
-    filter5,
-    filter6,
-    filter7,
-  };
-  let setFilterObj = {
-    setFilter1,
-    setFilter2,
-    setFilter3,
-    setFilter4,
-    setFilter5,
-    setFilter6,
-    setFilter7,
-  };
   const [tableData, setTableData] = useState(data);
   //const [filters, setFilters] = useState(filterObj);
 
@@ -98,8 +72,6 @@ const InventoryApp = () => {
                 setTableData={setTableData}
                 data={data}
                 setData={setData}
-                setFilterObj={setFilterObj}
-                filterObj={filterObj}
                 dispatch={dispatch}
                 state={state}
               />
