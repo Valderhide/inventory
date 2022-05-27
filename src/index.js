@@ -30,7 +30,15 @@ const reducer = (state, event) => {
 
 const InventoryApp = () => {
   const [data, setData] = useState(getProperties());
-  const [state, dispatch] = useReducer(reducer, {});
+  const [state, dispatch] = useReducer(reducer, {
+    category: "",
+    name: "",
+    color: "",
+    amount: "",
+    price: "",
+    description: "",
+    store: "",
+  });
   const [filter1, setFilter1] = useState("");
   const [filter2, setFilter2] = useState("");
   const [filter3, setFilter3] = useState("");
@@ -64,16 +72,18 @@ const InventoryApp = () => {
       (item) =>
         categoryString(item.categories)
           .toLowerCase()
-          .includes(filter1.toLowerCase()) &&
-        item.name.toLowerCase().includes(filter2.toLowerCase()) &&
-        item.color.toLowerCase().includes(filter3.toLowerCase()) &&
-        item.amount.toLowerCase().includes(filter4.toLowerCase()) &&
-        item.price.toLowerCase().includes(filter5.toLowerCase()) &&
-        item.description.toLowerCase().includes(filter6.toLowerCase()) &&
-        item.store.toLowerCase().includes(filter7.toLowerCase())
+          .includes(state.category.toLowerCase()) &&
+        item.name.toLowerCase().includes(state.name.toLowerCase()) &&
+        item.color.toLowerCase().includes(state.color.toLowerCase()) &&
+        item.amount.toLowerCase().includes(state.amount.toLowerCase()) &&
+        item.price.toLowerCase().includes(state.price.toLowerCase()) &&
+        item.description
+          .toLowerCase()
+          .includes(state.description.toLowerCase()) &&
+        item.store.toLowerCase().includes(state.store.toLowerCase())
     );
     setTableData(newData);
-  }, [filter1, filter2, filter3, filter4, filter5, filter6, filter7, data]);
+  }, [state, data]);
 
   return (
     <BrowserRouter>

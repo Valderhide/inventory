@@ -15,24 +15,7 @@ export const categoryString = (categories) => {
   return kv;
 };
 
-function Inv({
-  state,
-  dispatch,
-  tableData,
-  setTableData,
-  data,
-  setData,
-  setFilterObj: {
-    setFilter1,
-    setFilter2,
-    setFilter3,
-    setFilter4,
-    setFilter5,
-    setFilter6,
-    setFilter7,
-  },
-  filterObj: { filter1, filter2, filter3, filter4, filter5, filter6, filter7 },
-}) {
+function Inv({ state, dispatch, tableData, data, setData }) {
   //Back end Inventory functions
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -99,23 +82,8 @@ function Inv({
   );
   let sum = maths.toFixed(2);
 
-  /*const [filter1, setFilter1] = useState("");
-  const [filter2, setFilter2] = useState("");
-  const [filter3, setFilter3] = useState("");
-  const [filter4, setFilter4] = useState("");
-  const [filter5, setFilter5] = useState("");
-  const [filter6, setFilter6] = useState("");
-  const [filter7, setFilter7] = useState("");
-  const [tableInfo, setTableInfo] = useState(data);*/
-
   const resetFilters = () => {
-    setFilter1("");
-    setFilter2("");
-    setFilter3("");
-    setFilter4("");
-    setFilter5("");
-    setFilter6("");
-    setFilter7("");
+    window.alert("FIX ME!");
   };
 
   return (
@@ -165,20 +133,6 @@ function Inv({
         <ItemTable
           data={data}
           onRowDelete={onRowDelete}
-          filter1={filter1}
-          filter2={filter2}
-          filter3={filter3}
-          filter4={filter4}
-          filter5={filter5}
-          filter6={filter6}
-          filter7={filter7}
-          setFilter1={setFilter1}
-          setFilter2={setFilter2}
-          setFilter3={setFilter3}
-          setFilter4={setFilter4}
-          setFilter5={setFilter5}
-          setFilter6={setFilter6}
-          setFilter7={setFilter7}
           resetFilters={resetFilters}
           tableData={tableData}
           sum={sum}

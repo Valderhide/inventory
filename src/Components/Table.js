@@ -5,20 +5,6 @@ export default function ItemTable({
   state,
   dispatch,
   onRowDelete,
-  filter1,
-  filter2,
-  filter3,
-  filter4,
-  filter5,
-  filter6,
-  filter7,
-  setFilter1,
-  setFilter2,
-  setFilter3,
-  setFilter4,
-  setFilter5,
-  setFilter6,
-  setFilter7,
   resetFilters,
   tableData,
   sum,
@@ -66,8 +52,8 @@ export default function ItemTable({
             <form>
               <input
                 type="text"
-                value={state.product}
-                onChange={(e) => dispatch({ product: e.target.value })}
+                value={state.name}
+                onChange={(e) => dispatch({ name: e.target.value })}
                 //onChange={(e) => setFilter2(e.target.value)}
                 placeholder="Search"
                 size={5}
@@ -78,8 +64,8 @@ export default function ItemTable({
             <form>
               <input
                 type="text"
-                value={filter3}
-                onChange={(e) => setFilter3(e.target.value)}
+                value={state.color}
+                onChange={(e) => dispatch({ color: e.target.value })}
                 placeholder="Search"
                 size={5}
               />
@@ -89,8 +75,8 @@ export default function ItemTable({
             <form>
               <input
                 type="text"
-                value={filter4}
-                onChange={(e) => setFilter4(e.target.value)}
+                value={state.amount}
+                onChange={(e) => dispatch({ amount: e.target.value })}
                 placeholder="Search"
                 size={5}
               />
@@ -100,8 +86,8 @@ export default function ItemTable({
             <form>
               <input
                 type="text"
-                value={filter5}
-                onChange={(e) => setFilter5(e.target.value)}
+                value={state.price}
+                onChange={(e) => dispatch({ price: e.target.value })}
                 placeholder="Search"
                 size={5}
               />
@@ -111,8 +97,8 @@ export default function ItemTable({
             <form>
               <input
                 type="text"
-                value={filter6}
-                onChange={(e) => setFilter6(e.target.value)}
+                value={state.description}
+                onChange={(e) => dispatch({ description: e.target.value })}
                 placeholder="Search"
                 size={5}
               />
@@ -122,8 +108,8 @@ export default function ItemTable({
             <form>
               <input
                 type="text"
-                value={filter7}
-                onChange={(e) => setFilter7(e.target.value)}
+                value={state.store}
+                onChange={(e) => dispatch({ store: e.target.value })}
                 placeholder="Search"
                 size={5}
               />
