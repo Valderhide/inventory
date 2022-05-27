@@ -23,16 +23,14 @@ const getProperties = () => {
   return properties;
 };
 
-const filters = {};
-
 const reducer = (state, event) => {
-  state = { ...filters, event };
+  state = { ...state, ...event };
   return state;
 };
 
 const InventoryApp = () => {
   const [data, setData] = useState(getProperties());
-  const [state, dispatch] = useReducer(reducer, filters);
+  const [state, dispatch] = useReducer(reducer, {});
   const [filter1, setFilter1] = useState("");
   const [filter2, setFilter2] = useState("");
   const [filter3, setFilter3] = useState("");
