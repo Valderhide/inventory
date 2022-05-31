@@ -82,7 +82,6 @@ const InventoryApp = () => {
           element={<Print tableData={tableData} setTableData={setTableData} />}
         />
       </Routes>
-      {console.log(state)}
     </BrowserRouter>
   );
 };

@@ -54,7 +54,9 @@ a{color: rgb(0, 0, 255);}
 }
 
 .hope{
-  background-color: pink;
+  background-color: rgb(6, 25, 132);
+  color: #ffffff;
+  text-align: center;
 }
 
 .hide{  display: none;

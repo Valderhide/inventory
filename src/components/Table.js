@@ -1,4 +1,5 @@
 import { Table, Button } from "react-bootstrap";
+import { useState } from "react";
 import { categoryString } from "../pages/Inventory";
 
 export default function ItemTable({
@@ -11,6 +12,12 @@ export default function ItemTable({
   const id = () => {
     return "_" + Math.random().toString(36).substr(2, 9);
   };
+
+  const [toggleClass, setToggleClass] = useState(false);
+  const handleToggle = () => {
+    setToggleClass(!toggleClass);
+  };
+
   return (
     <Table
       id="myTable"
@@ -21,6 +28,7 @@ export default function ItemTable({
       size="sm"
       className="inv-table"
     >
+      <button onClick={handleToggle}>Toggle class</button>
       <thead>
         <tr>
           <th>Picture</th>
@@ -135,6 +143,9 @@ export default function ItemTable({
           </th>
         </tr>
       </thead>
+      <td className={toggleClass ? "hide" : "hope"} colSpan={8}>
+        No Item Detected. Please Add Item via button located at top of page
+      </td>
       <tbody>
         {tableData.map(
           ({
@@ -168,9 +179,6 @@ export default function ItemTable({
             </tr>
           )
         )}
-        <th id="No Data" class="hope">
-          <td> No Item Detected</td>
-        </th>
       </tbody>
       <tfoot>
         <tr>
