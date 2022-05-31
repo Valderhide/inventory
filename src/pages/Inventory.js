@@ -82,10 +82,6 @@ function Inv({ state, dispatch, tableData, data, setData }) {
   );
   let sum = maths.toFixed(2);
 
-  const resetFilters = () => {
-    window.alert("FIX ME!");
-  };
-
   return (
     <>
       <div className="App">
@@ -133,7 +129,6 @@ function Inv({ state, dispatch, tableData, data, setData }) {
         <ItemTable
           data={data}
           onRowDelete={onRowDelete}
-          resetFilters={resetFilters}
           tableData={tableData}
           sum={sum}
           dispatch={dispatch}

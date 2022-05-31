@@ -39,7 +39,6 @@ const InventoryApp = () => {
     store: "",
   });
   const [tableData, setTableData] = useState(data);
-  //const [filters, setFilters] = useState(filterObj);
 
   useEffect(() => {
     const newData = data.filter(

@@ -5,7 +5,6 @@ export default function ItemTable({
   state,
   dispatch,
   onRowDelete,
-  resetFilters,
   tableData,
   sum,
 }) {
@@ -117,7 +116,22 @@ export default function ItemTable({
           </th>
 
           <th>
-            <Button onClick={() => resetFilters()}> Reset </Button>
+            <Button
+              onClick={(e) =>
+                dispatch({
+                  category: "",
+                  name: "",
+                  color: "",
+                  amount: "",
+                  price: "",
+                  description: "",
+                  store: "",
+                })
+              }
+            >
+              {" "}
+              Reset{" "}
+            </Button>
           </th>
         </tr>
       </thead>
