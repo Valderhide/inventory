@@ -15,8 +15,7 @@
 
 .table th {
   font-family: "Arial Narrow";
-  background-color: #ffd700;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 td img {
@@ -53,3 +52,10 @@ a{color: rgb(0, 0, 255);}
         display: none !important;
     }
 }
+
+.hope{
+  background-color: pink;
+}
+
+.hide{  display: none;
+  visibility: hidden;}

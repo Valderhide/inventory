@@ -168,6 +168,9 @@ export default function ItemTable({
             </tr>
           )
         )}
+        <th id="No Data" class="hope">
+          <td> No Item Detected</td>
+        </th>
       </tbody>
       <tfoot>
         <tr>
