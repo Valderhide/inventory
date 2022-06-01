@@ -19,44 +19,43 @@ export default function ItemTable({
           No Items found, please add item via Add Item button at top of page
         </tbody>
       );
-    } else {
-      return (
-        <tbody>
-          {tableData.map(
-            ({
-              categories,
-              base64,
-              name,
-              color,
-              amount,
-              price,
-              description,
-              store,
-            }) => (
-              <tr key={id()}>
-                <td key={base64}>
-                  {" "}
-                  <img src={base64} alt="" />{" "}
-                </td>
-                <td key={categoryString(categories)}>
-                  {categoryString(categories)}
-                </td>
-
-                <td key={name}>{name}</td>
-                <td key={color}>{color}</td>
-                <td key={amount}>{amount}</td>
-                <td key={price}>{price}</td>
-                <td key={description}>{description}</td>
-                <td key={store}>{store}</td>
-                <td>
-                  <Button onClick={() => onRowDelete(name)}> Delete </Button>
-                </td>
-              </tr>
-            )
-          )}
-        </tbody>
-      );
     }
+    return (
+      <tbody>
+        {tableData.map(
+          ({
+            categories,
+            base64,
+            name,
+            color,
+            amount,
+            price,
+            description,
+            store,
+          }) => (
+            <tr key={id()}>
+              <td key={base64}>
+                {" "}
+                <img src={base64} alt="" />{" "}
+              </td>
+              <td key={categoryString(categories)}>
+                {categoryString(categories)}
+              </td>
+
+              <td key={name}>{name}</td>
+              <td key={color}>{color}</td>
+              <td key={amount}>{amount}</td>
+              <td key={price}>{price}</td>
+              <td key={description}>{description}</td>
+              <td key={store}>{store}</td>
+              <td>
+                <Button onClick={() => onRowDelete(name)}> Delete </Button>
+              </td>
+            </tr>
+          )
+        )}
+      </tbody>
+    );
   };
 
   return (
