@@ -18,17 +18,15 @@
   color: rgb(255, 255, 255);
 }
 
+
 td img {
   height: 10vh;
   width: auto;
 }
 .inv-table {
   
-  min-height: 100vh;
-  
   flex-direction: column;
   overflow: auto;
-  font-size: calc(10px + 2vmin);
   color: rgb(255, 255, 255);
 }
 
@@ -41,9 +39,6 @@ h2{
 }
 a{color: rgb(0, 0, 255);}
 
-.home {
-  background-color: #23be04;
-}
 
 @media print
 {    
@@ -52,12 +47,3 @@ a{color: rgb(0, 0, 255);}
         display: none !important;
     }
 }
-
-.hope{
-  background-color: rgb(6, 25, 132);
-  color: #ffffff;
-  text-align: center;
-}
-
-.hide{  display: none;
-  visibility: hidden;}
