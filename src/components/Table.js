@@ -1,5 +1,4 @@
 import { Table, Button } from "react-bootstrap";
-import { useState } from "react";
 import { categoryString } from "../pages/Inventory";
 
 export default function ItemTable({
@@ -13,9 +12,51 @@ export default function ItemTable({
     return "_" + Math.random().toString(36).substr(2, 9);
   };
 
-  const [toggleClass, setToggleClass] = useState(false);
-  const handleToggle = () => {
-    setToggleClass(!toggleClass);
+  const handleShowTable = () => {
+    if (tableData.length === 0) {
+      return (
+        <tbody>
+          No Items found, please add item via Add Item button at top of page
+        </tbody>
+      );
+    } else {
+      return (
+        <tbody>
+          {tableData.map(
+            ({
+              categories,
+              base64,
+              name,
+              color,
+              amount,
+              price,
+              description,
+              store,
+            }) => (
+              <tr key={id()}>
+                <td key={base64}>
+                  {" "}
+                  <img src={base64} alt="" />{" "}
+                </td>
+                <td key={categoryString(categories)}>
+                  {categoryString(categories)}
+                </td>
+
+                <td key={name}>{name}</td>
+                <td key={color}>{color}</td>
+                <td key={amount}>{amount}</td>
+                <td key={price}>{price}</td>
+                <td key={description}>{description}</td>
+                <td key={store}>{store}</td>
+                <td>
+                  <Button onClick={() => onRowDelete(name)}> Delete </Button>
+                </td>
+              </tr>
+            )
+          )}
+        </tbody>
+      );
+    }
   };
 
   return (
@@ -28,7 +69,6 @@ export default function ItemTable({
       size="sm"
       className="inv-table"
     >
-      <button onClick={handleToggle}>Toggle class</button>
       <thead>
         <tr>
           <th>Picture</th>
@@ -49,7 +89,6 @@ export default function ItemTable({
                 type="text"
                 value={state.category}
                 onChange={(e) => dispatch({ category: e.target.value })}
-                //onChange={(e) => setFilter1(e.target.value)}
                 placeholder="Search"
                 size={5}
               />
@@ -61,7 +100,6 @@ export default function ItemTable({
                 type="text"
                 value={state.name}
                 onChange={(e) => dispatch({ name: e.target.value })}
-                //onChange={(e) => setFilter2(e.target.value)}
                 placeholder="Search"
                 size={5}
               />
@@ -143,43 +181,7 @@ export default function ItemTable({
           </th>
         </tr>
       </thead>
-      <td className={toggleClass ? "hide" : "hope"} colSpan={8}>
-        No Item Detected. Please Add Item via button located at top of page
-      </td>
-      <tbody>
-        {tableData.map(
-          ({
-            categories,
-            base64,
-            name,
-            color,
-            amount,
-            price,
-            description,
-            store,
-          }) => (
-            <tr key={id()}>
-              <td key={base64}>
-                {" "}
-                <img src={base64} alt="" />{" "}
-              </td>
-              <td key={categoryString(categories)}>
-                {categoryString(categories)}
-              </td>
-
-              <td key={name}>{name}</td>
-              <td key={color}>{color}</td>
-              <td key={amount}>{amount}</td>
-              <td key={price}>{price}</td>
-              <td key={description}>{description}</td>
-              <td key={store}>{store}</td>
-              <td>
-                <Button onClick={() => onRowDelete(name)}> Delete </Button>
-              </td>
-            </tr>
-          )
-        )}
-      </tbody>
+      {handleShowTable()}
       <tfoot>
         <tr>
           <td> Total Value</td>
