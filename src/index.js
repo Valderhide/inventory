@@ -10,9 +10,6 @@ import { categoryString } from "./pages/Inventory";
 
 const rootElement = document.getElementById("root");
 
-// filter1(state, price), filter2(state, amount), filter3(state), filter4(state)
-// filter(state) = {price: 10, amount: 20}
-
 const getProperties = () => {
   const properties = JSON.parse(localStorage.getItem("properties"));
 

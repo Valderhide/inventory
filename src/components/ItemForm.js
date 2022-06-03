@@ -11,9 +11,9 @@ import { useState } from "react";
 import categories from "./categories.json";
 import { categoryString } from "../pages/Inventory";
 
-function Category({ title, items, selectedCategory, setSelectedCategory }) {
+function Category({ title, items, setSelectedCategory }) {
   const handleSelect = (value) => {
-    setSelectedCategory((oldValues) => {
+    setSelectedCategory(() => {
       return { [title]: value };
     });
   };
