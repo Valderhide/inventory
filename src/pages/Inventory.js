@@ -23,15 +23,13 @@ function Inv({ state, dispatch, tableData, data, setData }) {
 
   const makeHandleSubmit = (categories) => async (e) => {
     const convertBase64 = (file) => {
-      var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+      /*var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
 
       if (!allowedExtensions.exec(file.value)) {
         alert(
           "Please upload file having extensions .jpeg/.jpg/.png/.gif only."
         );
-        file.value = "";
-        return false;
-      }
+      }*/
 
       return new Promise((resolve, reject) => {
         const fileReader = new FileReader();
