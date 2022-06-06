@@ -16,7 +16,11 @@ export default function ItemTable({
     if (tableData.length === 0) {
       return (
         <tbody>
-          No Items found, please add item via Add Item button at top of page
+          <tr>
+            <td>
+              No Items found, please add item via Add Item button at top of page
+            </td>
+          </tr>
         </tbody>
       );
     }

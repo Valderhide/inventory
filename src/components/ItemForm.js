@@ -1,5 +1,4 @@
 import {
-  Table,
   DropdownButton,
   ButtonGroup,
   Dropdown,
@@ -19,27 +18,49 @@ function Category({ title, items, setSelectedCategory }) {
     });
   };
   return (
-    <Col>
-      <Table>
-        <thead>{title}</thead>
-        {items.map(({ titles, subCategories }) => (
-          <tr key={titles}>
-            <tr
-              as={ButtonGroup}
-              variant="primary"
-              onSelect={handleSelect}
-              title={titles}
-            >
-              {subCategories.map((subCategory) => (
-                <td key={subCategory} eventKey={subCategory}>
-                  {subCategory}
-                </td>
-              ))}
-            </tr>
-          </tr>
-        ))}
-      </Table>
-    </Col>
+    <table>
+      <thead>{title}</thead>
+      {items.map(({ titles, subCategories }) => (
+        <tr key={titles}>
+          <Col
+            as={ButtonGroup}
+            variant="primary"
+            onClick={handleSelect}
+            title={titles}
+          >
+            {subCategories.map((subCategory) => (
+              <button key={subCategory} eventKey={subCategory}>
+                {subCategory}
+              </button>
+            ))}
+          </Col>
+        </tr>
+      ))}
+    </table>
+
+    /*<Col>
+      <Accordion className="categories-container">
+        <Accordion.Item eventKey="0">
+          <Accordion.Header>{title}</Accordion.Header>
+          {items.map(({ titles, subCategories }) => (
+            <Accordion.Body key={titles}>
+              <DropdownButton
+                as={ButtonGroup}
+                variant="primary"
+                onSelect={handleSelect}
+                title={titles}
+              >
+                {subCategories.map((subCategory) => (
+                  <Dropdown.Item key={subCategory} eventKey={subCategory}>
+                    {subCategory}
+                  </Dropdown.Item>
+                ))}
+              </DropdownButton>
+            </Accordion.Body>
+          ))}
+        </Accordion.Item>
+      </Accordion>
+    </Col>*/
   );
 }
 
